@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://crsff4q0aeod4"]
+
+[ext_resource type="Script" uid="uid://cgemu10d826un" path="res://scripts/MaisonRen.gd" id="1_wrjlc"]
+[ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="2_u47x6"]
+[ext_resource type="Script" uid="uid://dpctlax0vm1q7" path="res://scripts/TriggerMaisonRen.gd" id="3_u47x6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5fem"]
+size = Vector2(48, 48)
+
+[node name="MaisonRen" type="Node2D" unique_id=1075182508]
+script = ExtResource("1_wrjlc")
+
+[node name="DialogueBox" parent="." unique_id=2103577796 instance=ExtResource("2_u47x6")]
+
+[node name="TriggerMaisonRen" type="Area2D" parent="." unique_id=1824595191]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerMaisonRen" unique_id=717337924]
+shape = SubResource("RectangleShape2D_w5fem")
+script = ExtResource("3_u47x6")

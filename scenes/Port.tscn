@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://bbowefvfs5i8v"]
+
+[ext_resource type="Script" uid="uid://br4du3jmqcsie" path="res://scripts/Port.gd" id="1_iv2cg"]
+[ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="2_06fr3"]
+[ext_resource type="Texture2D" uid="uid://d0r03to56ft1d" path="res://sprites/personnages/yamoto.png" id="3_06fr3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2nbd"]
+atlas = ExtResource("3_06fr3")
+region = Rect2(0, 4, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an4eo"]
+atlas = ExtResource("3_06fr3")
+region = Rect2(48, 4, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewgm2"]
+atlas = ExtResource("3_06fr3")
+region = Rect2(96, 4, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jtj3"]
+atlas = ExtResource("3_06fr3")
+region = Rect2(144, 4, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvxwr"]
+atlas = ExtResource("3_06fr3")
+region = Rect2(96, 98, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jep5s"]
+atlas = ExtResource("3_06fr3")
+region = Rect2(144, 98, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgbwi"]
+atlas = ExtResource("3_06fr3")
+region = Rect2(96, 145, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbpoj"]
+atlas = ExtResource("3_06fr3")
+region = Rect2(144, 145, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrxy7"]
+atlas = ExtResource("3_06fr3")
+region = Rect2(48, 98, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owluk"]
+atlas = ExtResource("3_06fr3")
+region = Rect2(0, 98, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdbjn"]
+atlas = ExtResource("3_06fr3")
+region = Rect2(0, 145, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu8c6"]
+atlas = ExtResource("3_06fr3")
+region = Rect2(48, 145, 48, 47)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5msnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2nbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an4eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewgm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jtj3")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvxwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jep5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgbwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbpoj")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrxy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owluk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdbjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu8c6")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 8.0
+}]
+
+[node name="Port" type="Node2D" unique_id=930197228]
+script = ExtResource("1_iv2cg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1985269244]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.11764706, 0.19607843, 0.3137255, 1)
+
+[node name="DialogueBox" parent="." unique_id=2103577796 instance=ExtResource("2_06fr3")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=568765039]
+sprite_frames = SubResource("SpriteFrames_5msnq")
+animation = &"walk_down"

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bbxcffugrv3o4"]
+
+[ext_resource type="Script" uid="uid://oif1osn3tiee" path="res://scripts/chambre_pierre.gd" id="1_8n7vb"]
+[ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="2_6n55u"]
+[ext_resource type="PackedScene" uid="uid://b3nddcw4vnge5" path="res://scenes/monde.tscn" id="3_6n55u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rno1k"]
+size = Vector2(80, 80)
+
+[node name="Chambre de pierre" type="Node2D" unique_id=835620418]
+script = ExtResource("1_8n7vb")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=97242971]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.101960786, 0.078431375, 0.11764706, 1)
+
+[node name="Artefact" type="Node2D" parent="." unique_id=1272377292]
+
+[node name="Socle" type="ColorRect" parent="Artefact" unique_id=1790029418]
+custom_minimum_size = Vector2(120, 20)
+offset_left = 516.0
+offset_top = 380.0
+offset_right = 636.0
+offset_bottom = 420.0
+color = Color(0.23529412, 0.19607843, 0.27450982, 1)
+
+[node name="Cristal" type="ColorRect" parent="Artefact" unique_id=1707601512]
+custom_minimum_size = Vector2(30, 50)
+offset_left = 561.0
+offset_top = 320.0
+offset_right = 601.0
+offset_bottom = 370.0
+color = Color(0.7058824, 0.54901963, 1, 0.78431374)
+
+[node name="Area2D" type="Area2D" parent="Artefact" unique_id=2007720807]
+position = Vector2(576, 340)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Artefact/Area2D" unique_id=1851971820]
+shape = SubResource("RectangleShape2D_rno1k")
+
+[node name="DialogueBox" parent="." unique_id=2103577796 instance=ExtResource("2_6n55u")]
+
+[node name="Node2D" parent="." unique_id=538445494 instance=ExtResource("3_6n55u")]

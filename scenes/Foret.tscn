@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://ypihfum4bk58"]
+
+[ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="1_80xgb"]
+[ext_resource type="PackedScene" uid="uid://5h03vd5glugc" path="res://scenes/Joueur.tscn" id="3_qj1wf"]
+[ext_resource type="Script" uid="uid://c6hdg32wlrjkl" path="res://scripts/SortieVersVillage.gd" id="4_t7s7p"]
+[ext_resource type="Script" uid="uid://bpxv5qy3f7ycj" path="res://scenes/SortieVersEcole.gd" id="5_g4yj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxtn1"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80xgb"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndale"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qj1wf"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7s7p"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4yj5"]
+size = Vector2(80, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr2ph"]
+size = Vector2(200, 32)
+
+[node name="Foret" type="Node2D" unique_id=1476328112]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=974472781]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.05882353, 0.11764706, 0.05882353, 1)
+
+[node name="ZonesResonance" type="Node2D" parent="." unique_id=724958264]
+
+[node name="ZoneKitsufi" type="Area2D" parent="ZonesResonance" unique_id=1350876091]
+position = Vector2(100, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonesResonance/ZoneKitsufi" unique_id=364154068]
+z_index = 5
+position = Vector2(100, 120)
+shape = SubResource("RectangleShape2D_gxtn1")
+
+[node name="ZoneOndrak" type="Area2D" parent="ZonesResonance" unique_id=1799245800]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonesResonance/ZoneOndrak" unique_id=589528235]
+z_index = 5
+position = Vector2(400, 500)
+shape = SubResource("RectangleShape2D_80xgb")
+
+[node name="ZoneMoshu" type="Area2D" parent="ZonesResonance" unique_id=2132539732]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonesResonance/ZoneMoshu" unique_id=343472167]
+z_index = 5
+position = Vector2(550, 200)
+shape = SubResource("RectangleShape2D_ndale")
+
+[node name="ZoneZappiko" type="Area2D" parent="ZonesResonance" unique_id=561675395]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonesResonance/ZoneZappiko" unique_id=1236227001]
+z_index = 5
+position = Vector2(800, 400)
+shape = SubResource("RectangleShape2D_qj1wf")
+
+[node name="ZoneKagemi" type="Area2D" parent="ZonesResonance" unique_id=848213589]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonesResonance/ZoneKagemi" unique_id=1870412692]
+z_index = 5
+position = Vector2(1000, 250)
+shape = SubResource("RectangleShape2D_t7s7p")
+
+[node name="DialogueBox" parent="." unique_id=2103577796 instance=ExtResource("1_80xgb")]
+
+[node name="Joueur" parent="." unique_id=1529799131 instance=ExtResource("3_qj1wf")]
+position = Vector2(100, 324)
+
+[node name="SortieVersVillage" type="Area2D" parent="." unique_id=1899710232]
+script = ExtResource("4_t7s7p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SortieVersVillage" unique_id=211394387]
+position = Vector2(32, 200)
+shape = SubResource("RectangleShape2D_g4yj5")
+
+[node name="SortieVersEcole" type="Area2D" parent="." unique_id=167790204]
+script = ExtResource("5_g4yj5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SortieVersEcole" unique_id=787682377]
+shape = SubResource("RectangleShape2D_xr2ph")

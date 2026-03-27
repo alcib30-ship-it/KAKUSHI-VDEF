@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://mpdo6yewki1u"]
+
+[ext_resource type="Script" uid="uid://dh46m4s0bvcj4" path="res://scripts/Jirou.gd" id="1_vc7hh"]
+[ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="2_472y5"]
+[ext_resource type="Texture2D" uid="uid://b45ipbp8mmjwc" path="res://sprites/personnages/jirou.png" id="3_472y5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4of5o"]
+atlas = ExtResource("3_472y5")
+region = Rect2(0, 7, 48, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7clp"]
+atlas = ExtResource("3_472y5")
+region = Rect2(48, 7, 48, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar77o"]
+atlas = ExtResource("3_472y5")
+region = Rect2(96, 7, 48, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fwyp"]
+atlas = ExtResource("3_472y5")
+region = Rect2(144, 7, 48, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv48q"]
+atlas = ExtResource("3_472y5")
+region = Rect2(48, 99, 48, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3thr2"]
+atlas = ExtResource("3_472y5")
+region = Rect2(96, 99, 48, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l13xg"]
+atlas = ExtResource("3_472y5")
+region = Rect2(144, 99, 48, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qggj"]
+atlas = ExtResource("3_472y5")
+region = Rect2(144, 145, 48, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4fh3"]
+atlas = ExtResource("3_472y5")
+region = Rect2(0, 53, 48, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k356w"]
+atlas = ExtResource("3_472y5")
+region = Rect2(48, 53, 48, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co13s"]
+atlas = ExtResource("3_472y5")
+region = Rect2(96, 53, 48, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmu8d"]
+atlas = ExtResource("3_472y5")
+region = Rect2(144, 53, 48, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x4thg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4of5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7clp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar77o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fwyp")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv48q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3thr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l13xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qggj")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4fh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k356w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co13s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmu8d")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 4.0
+}]
+
+[node name="Jirou" type="Node2D" unique_id=281805377]
+script = ExtResource("1_vc7hh")
+
+[node name="DialogueBox" parent="." unique_id=2103577796 instance=ExtResource("2_472y5")]
+
+[node name="SpriteJirou" type="AnimatedSprite2D" parent="." unique_id=529249066]
+sprite_frames = SubResource("SpriteFrames_x4thg")
+animation = &"walk_down"

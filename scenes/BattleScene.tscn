@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://bsc56a166lhnp"]
+
+[ext_resource type="Script" uid="uid://b1wo60nt5k3td" path="res://scripts/BattleScene.gd" id="1_ltshs"]
+
+[node name="BattleScene" type="Node2D" unique_id=1317503945]
+script = ExtResource("1_ltshs")
+
+[node name="Fond" type="ColorRect" parent="." unique_id=355611350]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.05882353, 0.039215688, 0.09803922, 1)
+
+[node name="EnnemiPanel" type="Node2D" parent="." unique_id=393081802]
+position = Vector2(600, 30)
+
+[node name="EnnemiNom" type="Label" parent="EnnemiPanel" unique_id=503539608]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 20
+text = "Embrix"
+
+[node name="EnnemiPV" type="ProgressBar" parent="EnnemiPanel" unique_id=2141028308]
+offset_top = 30.0
+offset_right = 400.0
+offset_bottom = 57.0
+
+[node name="JoueurPanel" type="Node2D" parent="." unique_id=1426578769]
+
+[node name="StarterNom" type="Label" parent="JoueurPanel" unique_id=1220437565]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 20
+text = "Kitsufi"
+
+[node name="JoueurPV" type="ProgressBar" parent="JoueurPanel" unique_id=396813376]
+offset_top = 30.0
+offset_right = 400.0
+offset_bottom = 57.0
+max_value = 45.0
+value = 45.0
+
+[node name="JoueurJE" type="ProgressBar" parent="JoueurPanel" unique_id=1727590165]
+offset_top = 58.0
+offset_right = 400.0
+offset_bottom = 85.0
+value = 100.0
+
+[node name="BattleLog" type="Label" parent="." unique_id=1263497360]
+offset_left = 30.0
+offset_top = 320.0
+offset_right = 1122.0
+offset_bottom = 380.0
+
+[node name="Boutons" type="Node2D" parent="." unique_id=1481987962]
+
+[node name="BtnAttaque1" type="Button" parent="Boutons" unique_id=1936846753]
+offset_left = 30.0
+offset_top = 500.0
+offset_right = 290.0
+offset_bottom = 560.0
+text = "Morsure de Braise (10 JE)"
+
+[node name="BtnAttaque2" type="Button" parent="Boutons" unique_id=1848181504]
+offset_left = 310.0
+offset_top = 500.0
+offset_right = 570.0
+offset_bottom = 560.0
+text = "Queue Enflammée (15 JE)"
+
+[node name="BtnAttaque3" type="Button" parent="Boutons" unique_id=739878685]
+offset_left = 590.0
+offset_top = 500.0
+offset_right = 850.0
+offset_bottom = 560.0
+text = "Rugissement (10 JE)"
+
+[node name="BtnFuir" type="Button" parent="Boutons" unique_id=1583830822]
+offset_left = 870.0
+offset_top = 500.0
+offset_right = 1130.0
+offset_bottom = 560.0
+disabled = true
+text = "Fuir"

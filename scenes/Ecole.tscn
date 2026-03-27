@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://eqblfmkdbe3s"]
+
+[ext_resource type="Script" uid="uid://3tjvqnr2havx" path="res://scripts/Ecole.gd" id="1_igksy"]
+[ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="2_4hgij"]
+[ext_resource type="Texture2D" uid="uid://cqixom1mvqkmr" path="res://sprites/personnages/mere.png" id="3_4hgij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scxhh"]
+atlas = ExtResource("3_4hgij")
+region = Rect2(0, 4, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a316c"]
+atlas = ExtResource("3_4hgij")
+region = Rect2(48, 4, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34heh"]
+atlas = ExtResource("3_4hgij")
+region = Rect2(96, 4, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ut0m"]
+atlas = ExtResource("3_4hgij")
+region = Rect2(144, 4, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egkgm"]
+atlas = ExtResource("3_4hgij")
+region = Rect2(0, 98, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxp17"]
+atlas = ExtResource("3_4hgij")
+region = Rect2(0, 145, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fiswp"]
+atlas = ExtResource("3_4hgij")
+region = Rect2(48, 145, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kaqw"]
+atlas = ExtResource("3_4hgij")
+region = Rect2(144, 145, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14brw"]
+atlas = ExtResource("3_4hgij")
+region = Rect2(0, 51, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2jl7"]
+atlas = ExtResource("3_4hgij")
+region = Rect2(48, 51, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8vt8"]
+atlas = ExtResource("3_4hgij")
+region = Rect2(96, 51, 48, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w717"]
+atlas = ExtResource("3_4hgij")
+region = Rect2(144, 51, 48, 47)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2h4n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scxhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a316c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34heh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ut0m")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egkgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxp17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fiswp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kaqw")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14brw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2jl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8vt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w717")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 8.0
+}]
+
+[node name="Ecole" type="Node2D" unique_id=1456160868]
+script = ExtResource("1_igksy")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=581940274]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.9411765, 0.9019608, 0.8235294, 1)
+
+[node name="DialogueBox" parent="." unique_id=2103577796 instance=ExtResource("2_4hgij")]
+
+[node name="SpriteMere" type="AnimatedSprite2D" parent="." unique_id=1797153411]
+sprite_frames = SubResource("SpriteFrames_y2h4n")
+animation = &"walk_up"

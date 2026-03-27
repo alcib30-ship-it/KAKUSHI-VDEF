@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cs13r5rp4fd00"]
+
+[ext_resource type="Script" uid="uid://0j12mtixlvnl" path="res://scripts/dialogue_box.gd" id="1_62fiq"]
+
+[node name="DialogueBox" type="CanvasLayer" unique_id=2103577796]
+script = ExtResource("1_62fiq")
+
+[node name="Box" type="Control" parent="." unique_id=698469480]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="Box" unique_id=1567174796]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050980393, 0.050980393, 0.101960786, 0.9019608)
+
+[node name="NomPersonnage" type="Label" parent="Box" unique_id=520485294]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0.8, 0.6509804, 0.2, 1)
+theme_override_font_sizes/font_size = 20
+text = "Jirou"
+
+[node name="Texte" type="Label" parent="Box" unique_id=1277010904]
+custom_minimum_size = Vector2(1100, 120)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 45.0
+offset_right = 60.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 20
+text = "Si tu croises quelque chose qui te regarde sans fuir... reste immobile. Laisse-le venir à toi."
+autowrap_mode = 2
+
+[node name="Continuer" type="Label" parent="Box" unique_id=709003070]
+layout_mode = 0
+offset_left = 1050.0
+offset_top = 140.0
+offset_right = 1090.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(0.8, 0.6509804, 0.2, 1)
+theme_override_font_sizes/font_size = 18
+text = "Continuer"
