@@ -8,12 +8,7 @@ const VITESSE = 80
 func _ready():
 	await get_tree().process_frame
 	corps.position = Vector2(Global.spawn_x, Global.spawn_y)
-	var spr = get_node_or_null("Corps/SpriteRen")
-	print("SpriteRen trouvé : ", spr)
-	if spr == null:
-		print("Enfants de Corps : ")
-		for child in $Corps.get_children():
-			print(" - ", child.name)
+	$Corps/SpriteKakushi.visible = Global.kakushi_visible
 
 func _physics_process(_delta):
 	var direction = Vector2.ZERO

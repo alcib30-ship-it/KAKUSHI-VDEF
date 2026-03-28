@@ -13,13 +13,12 @@ var joueur_dans_zone : bool = false
 var DUREE_LIEN : float = 3.0
 
 func _ready():
-	print("Foret _ready — DialogueManager ready : ", DialogueManager.is_ready())
 	if Global.starter_choisi != "":
 		_connecter_zones()
 		return
 	await get_tree().process_frame
 	await get_tree().process_frame
-	print("Foret — lancement dialogue intro")
+	await get_tree().process_frame
 	DialogueManager.show_dialogue([
 		["", "La pulsion de l'artefact te guide. Des présences t'entourent."],
 		["", "Si l'une d'elles te regarde sans fuir... reste immobile 3 secondes pour créer un Lien."],

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ypihfum4bk58"]
 
 [ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="1_80xgb"]
+[ext_resource type="Script" uid="uid://cj2toq8aue116" path="res://scripts/Foret.gd" id="1_g4yj5"]
 [ext_resource type="PackedScene" uid="uid://5h03vd5glugc" path="res://scenes/Joueur.tscn" id="3_qj1wf"]
 [ext_resource type="Script" uid="uid://c6hdg32wlrjkl" path="res://scripts/SortieVersVillage.gd" id="4_t7s7p"]
 [ext_resource type="Script" uid="uid://bpxv5qy3f7ycj" path="res://scenes/SortieVersEcole.gd" id="5_g4yj5"]
@@ -27,6 +28,7 @@ size = Vector2(80, 38)
 size = Vector2(200, 32)
 
 [node name="Foret" type="Node2D" unique_id=1476328112]
+script = ExtResource("1_g4yj5")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=974472781]
 custom_minimum_size = Vector2(1152, 648)

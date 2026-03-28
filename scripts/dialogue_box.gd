@@ -97,7 +97,6 @@ func _input(event):
 				if callback.is_valid():
 					callback.call()
 func _ready():
-	print("DialogueBox _ready appelé — scène : ", get_tree().current_scene.name)
 	DialogueManager.register(self)
 	$Box.visible = false
 	continuer.text = "▶ Continuer"
