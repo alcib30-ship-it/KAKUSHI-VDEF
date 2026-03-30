@@ -94,6 +94,7 @@ func _oui_lien():
 	Global.starter_choisi = starter_actuel
 	Global.kakushi_visible = true
 	Global.augmenter_fiabilite()
+	StoryManager.avancer(StoryManager.Etape.LIEN_CREE)
 	DialogueManager.show_dialogue([
 		["", "Un Lien vient de naître."],
 		["", "Tu sens une connexion profonde — comme si vous vous connaissiez depuis toujours."]
@@ -106,4 +107,5 @@ func _non_lien():
 
 func _apres_lien():
 	await get_tree().create_timer(0.5).timeout
+	StoryManager.avancer(StoryManager.Etape.FORET_ENTREE)
 	get_tree().change_scene_to_file("res://scenes/BattleScene.tscn")

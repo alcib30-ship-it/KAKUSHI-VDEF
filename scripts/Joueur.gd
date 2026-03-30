@@ -1,3 +1,4 @@
+# scripts/Joueur.gd — version complète finale
 extends Node2D
 
 const VITESSE = 80
@@ -7,7 +8,17 @@ const VITESSE = 80
 
 func _ready():
 	await get_tree().process_frame
-	corps.position = Vector2(Global.spawn_x, Global.spawn_y)
+	# Si un spawn_point nommé est défini, cherche le Marker2D dans la scène
+	if Global.spawn_point != "":
+		var marker = get_tree().current_scene.get_node_or_null(Global.spawn_point)
+		if marker != null:
+			corps.position = marker.position
+		else:
+			push_warning("Joueur : Marker2D introuvable → " + Global.spawn_point)
+			corps.position = Vector2(Global.spawn_x, Global.spawn_y)
+		Global.spawn_point = ""
+	else:
+		corps.position = Vector2(Global.spawn_x, Global.spawn_y)
 	$Corps/SpriteKakushi.visible = Global.kakushi_visible
 
 func _physics_process(_delta):

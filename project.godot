@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 Global="*uid://bg18ami5c4gp7"
 DialogueManager="*uid://cs5uqtjwmm34i"
+StoryManager="*uid://yrar6in38fxo"
+Transition="*uid://u2yqrly8qbw5"
 
 [display]
 

@@ -7,8 +7,11 @@ func _ready():
 
 func _on_body_entered(body):
 	if body is CharacterBody2D and !Global.balise_1_activee:
+		if not StoryManager.est_a_partir_de(StoryManager.Etape.YAMOTO_VU):
+			return
 		Global.balise_1_activee = true
 		$ColorRect.visible = false
+		StoryManager.avancer(StoryManager.Etape.BALISE_ACTIVEE)
 		DialogueManager.show_dialogue([
 			["", "Une pierre ancienne gravée de symboles pulse d'une lumière bleue."],
 			["", "Tu poses la main dessus."],

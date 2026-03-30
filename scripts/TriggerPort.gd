@@ -7,9 +7,10 @@ func _ready():
 
 func _on_body_entered(body):
 	if body is CharacterBody2D and !declenche:
-		if Global.starter_choisi == "":
+		if not StoryManager.est_a_partir_de(StoryManager.Etape.ECOLE_VUE):
 			return
 		declenche = true
+		StoryManager.avancer(StoryManager.Etape.YAMOTO_VU)
 		DialogueManager.show_dialogue([
 			["Yamoto", "Alors c'est toi."],
 			["Ren", "Ma mère m'a dit de venir vous voir."],

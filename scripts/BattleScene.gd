@@ -85,6 +85,7 @@ func victoire():
 	combat_termine = true
 	_desactiver_boutons()
 	battle_log.text = "Embrix a fui. On a fait ça."
+	StoryManager.avancer(StoryManager.Etape.COMBAT_GAGNE)
 	await get_tree().create_timer(2.0).timeout
 	get_tree().change_scene_to_file("res://scenes/Foret.tscn")
 

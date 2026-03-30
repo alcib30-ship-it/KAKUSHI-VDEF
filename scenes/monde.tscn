@@ -25268,6 +25268,9 @@ script = ExtResource("4_5o5ke")
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_13bj3")
 
+[node name="entree_apres_escalier" type="Marker2D" parent="TriggerEscalier" unique_id=1919594250]
+position = Vector2(1550, 0)
+
 [node name="Balise1" type="Area2D" parent="." unique_id=328778854]
 position = Vector2(1550, 200)
 script = ExtResource("5_pguex")
@@ -25291,6 +25294,9 @@ script = ExtResource("6_xy4bk")
 position = Vector2(350, 0)
 shape = SubResource("RectangleShape2D_s13o8")
 
+[node name="Marentree_consortiumker2D" type="Marker2D" parent="TriggerConsortium" unique_id=1660951237]
+position = Vector2(700, 700)
+
 [node name="TriggerDepart" type="Area2D" parent="." unique_id=567877186]
 position = Vector2(550, 1200)
 script = ExtResource("7_s13o8")
@@ -25299,12 +25305,18 @@ script = ExtResource("7_s13o8")
 position = Vector2(500, 0)
 shape = SubResource("RectangleShape2D_edr6m")
 
+[node name="entree_clairiere" type="Marker2D" parent="TriggerDepart" unique_id=539161177]
+position = Vector2(144, 200)
+
 [node name="TriggerEcole" type="Area2D" parent="." unique_id=761944092]
 script = ExtResource("8_edr6m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerEcole" unique_id=638464838]
 position = Vector2(200, 324)
 shape = SubResource("RectangleShape2D_4ppgb")
+
+[node name="Mentree_apres_ecolearker2D" type="Marker2D" parent="TriggerEcole" unique_id=1224839632]
+position = Vector2(1100, 430)
 
 [node name="TriggerPort" type="Area2D" parent="." unique_id=444723381]
 position = Vector2(100, 1002)
@@ -25313,6 +25325,9 @@ script = ExtResource("9_525qm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerPort" unique_id=1986073766]
 position = Vector2(350, 324)
 shape = SubResource("RectangleShape2D_c3moh")
+
+[node name="entree_port" type="Marker2D" parent="TriggerPort" unique_id=1032895939]
+position = Vector2(480, 1088)
 
 [node name="TriggerJirou" type="Area2D" parent="." unique_id=2064866736]
 position = Vector2(350, 650)

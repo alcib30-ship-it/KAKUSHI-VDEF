@@ -7,9 +7,10 @@ func _ready():
 
 func _on_body_entered(body):
 	if body is CharacterBody2D and !declenche:
-		if Global.starter_choisi == "":
+		if not StoryManager.est_a_partir_de(StoryManager.Etape.COMBAT_GAGNE):
 			return
 		declenche = true
+		StoryManager.avancer(StoryManager.Etape.ECOLE_VUE)
 		DialogueManager.show_dialogue([
 			["Mère", "Tu as trouvé l'escalier."],
 			["Ren", "Tu savais ?"],
@@ -21,5 +22,4 @@ func _on_body_entered(body):
 		], _apres_dialogue)
 
 func _apres_dialogue():
-	Global.set_spawn_point("apres_ecole")
-	DialogueManager.change_scene("res://scenes/monde.tscn")
+	Transition.vers("res://scenes/monde.tscn", "entree_apres_ecole")
