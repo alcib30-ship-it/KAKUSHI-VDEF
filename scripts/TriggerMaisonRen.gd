@@ -1,14 +1,16 @@
-extends Area2D
+extends "res://scripts/BaseTrigger.gd"
 
-var declenche : bool = false
+func condition_activation() -> bool:
+	return not StoryManager.est_a_partir_de(StoryManager.Etape.MAISON_VUE)
 
-func _ready():
-	body_entered.connect(_on_body_entered)
-
-func _on_body_entered(body):
-	if body is CharacterBody2D and !declenche:
-		declenche = true
-		call_deferred("_changer_scene")
-
-func _changer_scene():
-	get_tree().change_scene_to_file("res://scenes/MaisonRen.tscn")
+func on_activation() -> void:
+	StoryManager.avancer(StoryManager.Etape.MAISON_VUE)
+	DialogueManager.show_dialogue([
+		["",     "La maison de Ren. Simple, chaleureuse."],
+		["",     "Sur la table — le carnet de maman."],
+		["",     "Elle oublie toujours ses affaires quand elle est pressée."],
+		["Père", "Tu as dormi dehors encore."],
+		["Ren",  "..."],
+		["Père", "Fais attention sur la route."],
+		["",     "Il repart sans attendre. Une habitude entre eux."],
+	], Callable())

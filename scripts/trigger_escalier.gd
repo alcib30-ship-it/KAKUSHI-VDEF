@@ -1,18 +1,8 @@
-extends Area2D
+extends "res://scripts/BaseTrigger.gd"
 
-var utilise : bool = false
+func condition_activation() -> bool:
+	return not StoryManager.est_a_partir_de(StoryManager.Etape.LIEN_CREE)
 
-func _ready():
-	body_entered.connect(_on_body_entered)
-
-func _on_body_entered(body):
-	if body is CharacterBody2D and !utilise:
-		if Global.starter_choisi != "":
-			return
-		utilise = true
-		Global.spawn_x = 32
-		Global.spawn_y = 200
-		call_deferred("_changer_scene")
-
-func _changer_scene():
-	get_tree().change_scene_to_file("res://scenes/Foret.tscn")
+func on_activation() -> void:
+	StoryManager.avancer(StoryManager.Etape.FORET_ENTREE)
+	Transition.vers("res://scenes/Foret.tscn", "entree_foret_ouest")

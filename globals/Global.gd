@@ -60,3 +60,14 @@ func set_spawn_point(nom: String) -> void:
 			spawn_x = 700.0;  spawn_y = 700.0
 		_:
 			push_warning("Global.set_spawn_point : point inconnu → " + nom)
+			
+# INVENTAIRE
+var a_lettre_jirou       : bool  = false
+var a_potions            : int   = 0
+
+# FLAGS NARRATIFS
+var nom_donne_consortium : bool  = false
+
+# _ready pour charger la save au démarrage
+func _ready() -> void:
+	SaveManager.charger()
