@@ -81,13 +81,15 @@ func maj_barres():
 	joueur_pv_bar.value = starter_pv
 	joueur_je_bar.value = starter_je
 
-func victoire():
+func victoire() -> void:
 	combat_termine = true
 	_desactiver_boutons()
 	battle_log.text = "Embrix a fui. On a fait ça."
 	StoryManager.avancer(StoryManager.Etape.COMBAT_GAGNE)
 	await get_tree().create_timer(2.0).timeout
-	get_tree().change_scene_to_file("res://scenes/Foret.tscn")
+	Global.spawn_x = Global.derniere_position_foret.x
+	Global.spawn_y = Global.derniere_position_foret.y
+	Transition.vers_foret()
 
 func defaite():
 	combat_termine = true

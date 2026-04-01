@@ -71,3 +71,5 @@ var nom_donne_consortium : bool  = false
 # _ready pour charger la save au démarrage
 func _ready() -> void:
 	SaveManager.charger()
+var derniere_position_monde : Vector2 = Vector2(128, 192)
+var derniere_position_foret : Vector2 = Vector2(100, 324)

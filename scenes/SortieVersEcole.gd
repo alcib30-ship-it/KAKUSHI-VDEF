@@ -7,7 +7,9 @@ func _on_body_entered(body):
 	if body is CharacterBody2D:
 		if not StoryManager.est_a_partir_de(StoryManager.Etape.COMBAT_GAGNE):
 			return
+		Global.spawn_x = Global.derniere_position_foret.x
+		Global.spawn_y = Global.derniere_position_foret.y
 		call_deferred("_changer_scene")
 
 func _changer_scene():
-	Transition.vers("res://scenes/monde.tscn", "entree_apres_ecole")
+	Transition.vers_ecole()

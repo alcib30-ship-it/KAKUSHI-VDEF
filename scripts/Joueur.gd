@@ -7,16 +7,7 @@ const VITESSE = 80
 
 func _ready() -> void:
 	await get_tree().process_frame
-	if Global.spawn_point != "":
-		var marker = get_tree().current_scene.find_child(Global.spawn_point, true, false)
-		if marker != null:
-			corps.position = marker.position
-		else:
-			push_warning("Joueur : Marker2D introuvable → " + Global.spawn_point)
-			corps.position = Vector2(Global.spawn_x, Global.spawn_y)
-		Global.spawn_point = ""
-	else:
-		corps.position = Vector2(Global.spawn_x, Global.spawn_y)
+	corps.position = Vector2(Global.spawn_x, Global.spawn_y)
 	$Corps/SpriteKakushi.visible = Global.kakushi_visible
 
 func _physics_process(_delta) -> void:

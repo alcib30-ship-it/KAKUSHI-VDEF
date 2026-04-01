@@ -79,9 +79,6 @@ shape = SubResource("RectangleShape2D_t7s7p")
 [node name="Joueur" parent="." unique_id=1529799131 instance=ExtResource("3_qj1wf")]
 position = Vector2(100, 324)
 
-[node name="entree_foret_ouest" type="Marker2D" parent="Joueur" unique_id=1383017654]
-position = Vector2(1, 1)
-
 [node name="SortieVersVillage" type="Area2D" parent="." unique_id=1899710232]
 script = ExtResource("4_t7s7p")
 

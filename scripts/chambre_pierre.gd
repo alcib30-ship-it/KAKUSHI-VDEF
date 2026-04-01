@@ -19,7 +19,9 @@ func _ready() -> void:
 	], _apres_dialogue)
 
 func _apres_dialogue() -> void:
-	Transition.vers("res://scenes/monde.tscn", "entree_clairiere")
+	Global.spawn_x = Global.derniere_position_monde.x
+	Global.spawn_y = Global.derniere_position_monde.y
+	Transition.vers_monde()
 
 func _process(delta: float) -> void:
 	temps_pulse += delta

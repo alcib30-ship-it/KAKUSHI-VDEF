@@ -1,22 +1,25 @@
 extends Node2D
 
-@onready var dialogue = $DialogueBox
-
-func _ready():
+func _ready() -> void:
 	await get_tree().process_frame
-	await get_tree().create_timer(0.5).timeout
-	dialogue.afficher_sequence([
+	await get_tree().process_frame
+	DialogueManager.show_dialogue([
 		["Mère", "Tu as trouvé l'escalier."],
-		["Ren", "Tu savais ?"],
+		["Ren",  "Tu savais ?"],
 		["Mère", "Je savais que ça arriverait. Depuis le jour où tu es né."],
+		["Ren",  "Depuis ma naissance ? Tu... tu aurais pu me dire quelque chose, non ?"],
+		["Mère", "Non. Ça doit arriver naturellement. Si on te dit avant, tu cherches. Et si tu cherches, tu forces. Et on ne force pas un Lien."],
 		["Mère", "Ton père aussi a ressenti ça. Au même âge. Au même endroit."],
-		["Ren", "Il était Tisseur ?"],
+		["Ren",  "Il était Tisseur ?"],
 		["Mère", "Il l'est encore. Quelque part."],
+		["Ren",  "Quelque part... tu sais où il est ?"],
 		["Mère", "Va voir Yamoto au port. Il t'expliquera ce que tu es maintenant."],
 		["Mère", "Prends soin de lui."],
-	], _fermer)
+		["Ren",  "Ah — ton carnet."],
+		["Mère", "Merci."],
+	], _apres_dialogue)
 
-func _fermer():
-	Global.spawn_x = 1100
-	Global.spawn_y = 430
-	get_tree().change_scene_to_file("res://scenes/monde.tscn")
+func _apres_dialogue() -> void:
+	Global.spawn_x = Global.derniere_position_foret.x
+	Global.spawn_y = Global.derniere_position_foret.y
+	Transition.vers_foret()

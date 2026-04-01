@@ -22,4 +22,6 @@ func on_activation() -> void:
 	], _apres_dialogue)
 
 func _apres_dialogue() -> void:
-	Transition.vers("res://scenes/monde.tscn", "entree_apres_ecole")
+	Global.spawn_x = Global.derniere_position_foret.x
+	Global.spawn_y = Global.derniere_position_foret.y
+	Transition.vers_foret()
