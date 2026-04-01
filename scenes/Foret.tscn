@@ -3,8 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="1_80xgb"]
 [ext_resource type="Script" uid="uid://cj2toq8aue116" path="res://scripts/Foret.gd" id="1_g4yj5"]
 [ext_resource type="PackedScene" uid="uid://5h03vd5glugc" path="res://scenes/Joueur.tscn" id="3_qj1wf"]
-[ext_resource type="Script" uid="uid://c6hdg32wlrjkl" path="res://scripts/SortieVersVillage.gd" id="4_t7s7p"]
-[ext_resource type="Script" uid="uid://bpxv5qy3f7ycj" path="res://scenes/SortieVersEcole.gd" id="5_g4yj5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxtn1"]
 size = Vector2(100, 100)
@@ -20,12 +18,6 @@ size = Vector2(100, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7s7p"]
 size = Vector2(100, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4yj5"]
-size = Vector2(80, 38)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr2ph"]
-size = Vector2(200, 32)
 
 [node name="Foret" type="Node2D" unique_id=1476328112]
 script = ExtResource("1_g4yj5")
@@ -78,16 +70,3 @@ shape = SubResource("RectangleShape2D_t7s7p")
 
 [node name="Joueur" parent="." unique_id=1529799131 instance=ExtResource("3_qj1wf")]
 position = Vector2(100, 324)
-
-[node name="SortieVersVillage" type="Area2D" parent="." unique_id=1899710232]
-script = ExtResource("4_t7s7p")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SortieVersVillage" unique_id=211394387]
-position = Vector2(32, 200)
-shape = SubResource("RectangleShape2D_g4yj5")
-
-[node name="SortieVersEcole" type="Area2D" parent="." unique_id=167790204]
-script = ExtResource("5_g4yj5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SortieVersEcole" unique_id=787682377]
-shape = SubResource("RectangleShape2D_xr2ph")

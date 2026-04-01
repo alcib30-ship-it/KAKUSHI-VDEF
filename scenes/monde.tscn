@@ -1,40 +1,13 @@
 [gd_scene format=3 uid="uid://b3nddcw4vnge5"]
 
+[ext_resource type="Script" uid="uid://dbgl43vf5sj14" path="res://scenes/Monde.gd" id="1_kul31"]
 [ext_resource type="Script" uid="uid://dq2y2f44d1gew" path="res://scripts/area_2d.gd" id="2_13bj3"]
 [ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="3_13bj3"]
-[ext_resource type="Script" uid="uid://ygo7ee2td1oh" path="res://scripts/trigger_escalier.gd" id="4_5o5ke"]
-[ext_resource type="Script" uid="uid://cfkuuoo1d8pia" path="res://scripts/Balise.gd" id="5_pguex"]
-[ext_resource type="Script" uid="uid://bn285fys5yfpk" path="res://scripts/TriggerConsortium.gd" id="6_xy4bk"]
-[ext_resource type="Script" uid="uid://cf8v17t3a8lhs" path="res://scripts/TriggerDepart.gd" id="7_s13o8"]
 [ext_resource type="PackedScene" uid="uid://5h03vd5glugc" path="res://scenes/Joueur.tscn" id="9_4ppgb"]
-[ext_resource type="Script" uid="uid://dmi4qp6r82f1h" path="res://scripts/TriggerPort.gd" id="9_525qm"]
 [ext_resource type="Texture2D" uid="uid://cvbb43hrtsrkx" path="res://assets/outdoor/Tilesetv2.png" id="11_c3moh"]
-[ext_resource type="Script" uid="uid://cew13mkiwc7fl" path="res://scripts/TriggerJirou.gd" id="11_kul31"]
-[ext_resource type="Script" uid="uid://dpctlax0vm1q7" path="res://scripts/TriggerMaisonRen.gd" id="12_kul31"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_peue8"]
 radius = 80.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_13bj3"]
-size = Vector2(80, 80)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_525qm"]
-size = Vector2(60, 60)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s13o8"]
-size = Vector2(67, 44.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_edr6m"]
-size = Vector2(36, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3moh"]
-size = Vector2(80, 80)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sf4v"]
-size = Vector2(48, 48)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kul31"]
-size = Vector2(48, 48)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ppgb"]
 texture = ExtResource("11_c3moh")
@@ -25243,6 +25216,7 @@ texture = ExtResource("11_c3moh")
 sources/0 = SubResource("TileSetAtlasSource_4ppgb")
 
 [node name="Node2D" type="Node2D" unique_id=538445494]
+script = ExtResource("1_kul31")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1439894625]
 position = Vector2(201, 200)
@@ -25259,83 +25233,6 @@ offset_right = 766.0
 offset_bottom = 325.0
 theme_override_font_sizes/font_size = 32
 text = "Un Kakushi sauvage apparaît !"
-
-[node name="TriggerEscalier" type="Area2D" parent="." unique_id=139334739]
-position = Vector2(1551, 0)
-script = ExtResource("4_5o5ke")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerEscalier" unique_id=1290065802]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_13bj3")
-
-[node name="entree_apres_escalier" type="Marker2D" parent="TriggerEscalier" unique_id=1919594250]
-position = Vector2(1, 1)
-
-[node name="Balise1" type="Area2D" parent="." unique_id=328778854]
-position = Vector2(1550, 200)
-script = ExtResource("5_pguex")
-
-[node name="ColorRect" type="ColorRect" parent="Balise1" unique_id=635738446]
-custom_minimum_size = Vector2(30, 30)
-offset_left = -15.0
-offset_top = -15.0
-offset_right = 25.0
-offset_bottom = 25.0
-color = Color(0.19607843, 0.39215687, 0.8627451, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Balise1" unique_id=1272202912]
-shape = SubResource("RectangleShape2D_525qm")
-
-[node name="TriggerConsortium" type="Area2D" parent="." unique_id=208440008]
-position = Vector2(700, 580)
-script = ExtResource("6_xy4bk")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerConsortium" unique_id=76739759]
-position = Vector2(2, 5.25)
-shape = SubResource("RectangleShape2D_s13o8")
-
-[node name="entree_consortiumker2D" type="Marker2D" parent="TriggerConsortium" unique_id=1660951237]
-position = Vector2(1, 1)
-
-[node name="TriggerDepart" type="Area2D" parent="." unique_id=567877186]
-position = Vector2(550, 1200)
-script = ExtResource("7_s13o8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerDepart" unique_id=902587072]
-position = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_edr6m")
-
-[node name="entree_clairiere" type="Marker2D" parent="TriggerDepart" unique_id=539161177]
-position = Vector2(1, 1)
-
-[node name="TriggerPort" type="Area2D" parent="." unique_id=444723381]
-position = Vector2(90, 988)
-script = ExtResource("9_525qm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerPort" unique_id=1986073766]
-position = Vector2(-3, 1)
-shape = SubResource("RectangleShape2D_c3moh")
-
-[node name="entree_port" type="Marker2D" parent="TriggerPort" unique_id=1032895939]
-position = Vector2(1, 1)
-
-[node name="TriggerJirou" type="Area2D" parent="." unique_id=2064866736]
-position = Vector2(350, 650)
-script = ExtResource("11_kul31")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerJirou" unique_id=1548657990]
-shape = SubResource("RectangleShape2D_7sf4v")
-
-[node name="entree_jirou" type="Marker2D" parent="TriggerJirou" unique_id=959324708]
-position = Vector2(1, 1)
-
-[node name="TriggerMaisonRen" type="Area2D" parent="TriggerJirou" unique_id=588519440]
-position = Vector2(-348, -650)
-script = ExtResource("12_kul31")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerJirou/TriggerMaisonRen" unique_id=351413273]
-position = Vector2(315, 475)
-shape = SubResource("RectangleShape2D_kul31")
 
 [node name="Joueur" parent="." unique_id=1529799131 instance=ExtResource("9_4ppgb")]
 z_index = 5

@@ -18,10 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://bg18ami5c4gp7"
-DialogueManager="*uid://cs5uqtjwmm34i"
 StoryManager="*uid://yrar6in38fxo"
-Transition="*uid://u2yqrly8qbw5"
 SaveManager="*uid://bxfkuq5jglnvn"
+DialogueManager="*uid://cs5uqtjwmm34i"
+Transition="*uid://u2yqrly8qbw5"
+WorldData="*uid://umir71gxlwi2"
+WorldLoader="*uid://chrp86vfdacdv"
 
 [display]
 
