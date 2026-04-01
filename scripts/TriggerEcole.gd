@@ -1,6 +1,10 @@
+# TriggerEcole.gd — INUTILISÉ — supprimé de monde.tscn
+# Le passage vers l'école se fait via SortieVersEcole dans Foret.tscn
 extends "res://scripts/BaseTrigger.gd"
 
 func condition_activation() -> bool:
+	return false
+	
 	return StoryManager.est_a_partir_de(StoryManager.Etape.COMBAT_GAGNE)
 
 func on_activation() -> void:

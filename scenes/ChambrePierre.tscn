@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://oif1osn3tiee" path="res://scripts/chambre_pierre.gd" id="1_8n7vb"]
 [ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="2_6n55u"]
-[ext_resource type="PackedScene" uid="uid://b3nddcw4vnge5" path="res://scenes/monde.tscn" id="3_6n55u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rno1k"]
 size = Vector2(80, 80)
@@ -41,5 +40,3 @@ position = Vector2(576, 340)
 shape = SubResource("RectangleShape2D_rno1k")
 
 [node name="DialogueBox" parent="." unique_id=2103577796 instance=ExtResource("2_6n55u")]
-
-[node name="Node2D" parent="." unique_id=538445494 instance=ExtResource("3_6n55u")]

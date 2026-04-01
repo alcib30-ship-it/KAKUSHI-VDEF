@@ -24,6 +24,7 @@ var choix_chemin_jirou: String = ""   # "route" ou "foret"
 func avancer(nouvelle_etape: Etape) -> void:
 	if nouvelle_etape > etape_actuelle:
 		etape_actuelle = nouvelle_etape
+		print("StoryManager → étape : ", Etape.keys()[etape_actuelle])
 		SaveManager.sauvegarder()
 
 func est_a_partir_de(etape: Etape) -> bool:

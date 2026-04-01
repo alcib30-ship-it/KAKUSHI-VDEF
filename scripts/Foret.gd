@@ -108,4 +108,5 @@ func _non_lien():
 func _apres_lien():
 	await get_tree().create_timer(0.5).timeout
 	StoryManager.avancer(StoryManager.Etape.FORET_ENTREE)
-	get_tree().change_scene_to_file("res://scenes/BattleScene.tscn")
+	Global.derniere_position_foret = Vector2(Global.spawn_x, Global.spawn_y)
+	Transition.vers_battle()

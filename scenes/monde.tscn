@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://cfkuuoo1d8pia" path="res://scripts/Balise.gd" id="5_pguex"]
 [ext_resource type="Script" uid="uid://bn285fys5yfpk" path="res://scripts/TriggerConsortium.gd" id="6_xy4bk"]
 [ext_resource type="Script" uid="uid://cf8v17t3a8lhs" path="res://scripts/TriggerDepart.gd" id="7_s13o8"]
-[ext_resource type="Script" uid="uid://cru6d81l0o2us" path="res://scripts/TriggerEcole.gd" id="8_edr6m"]
 [ext_resource type="PackedScene" uid="uid://5h03vd5glugc" path="res://scenes/Joueur.tscn" id="9_4ppgb"]
 [ext_resource type="Script" uid="uid://dmi4qp6r82f1h" path="res://scripts/TriggerPort.gd" id="9_525qm"]
 [ext_resource type="Texture2D" uid="uid://cvbb43hrtsrkx" path="res://assets/outdoor/Tilesetv2.png" id="11_c3moh"]
@@ -23,18 +22,18 @@ size = Vector2(80, 80)
 size = Vector2(60, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s13o8"]
-size = Vector2(100, 100)
+size = Vector2(67, 44.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_edr6m"]
-size = Vector2(100, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ppgb"]
-size = Vector2(80, 80)
+size = Vector2(36, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3moh"]
 size = Vector2(80, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sf4v"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kul31"]
 size = Vector2(48, 48)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ppgb"]
@@ -25243,9 +25242,6 @@ texture = ExtResource("11_c3moh")
 [sub_resource type="TileSet" id="TileSet_c3moh"]
 sources/0 = SubResource("TileSetAtlasSource_4ppgb")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kul31"]
-size = Vector2(48, 48)
-
 [node name="Node2D" type="Node2D" unique_id=538445494]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1439894625]
@@ -25295,7 +25291,7 @@ position = Vector2(700, 580)
 script = ExtResource("6_xy4bk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerConsortium" unique_id=76739759]
-position = Vector2(350, 0)
+position = Vector2(2, 5.25)
 shape = SubResource("RectangleShape2D_s13o8")
 
 [node name="entree_consortiumker2D" type="Marker2D" parent="TriggerConsortium" unique_id=1660951237]
@@ -25306,20 +25302,10 @@ position = Vector2(550, 1200)
 script = ExtResource("7_s13o8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerDepart" unique_id=902587072]
-position = Vector2(500, 0)
+position = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_edr6m")
 
 [node name="entree_clairiere" type="Marker2D" parent="TriggerDepart" unique_id=539161177]
-position = Vector2(1, 1)
-
-[node name="TriggerEcole" type="Area2D" parent="." unique_id=761944092]
-script = ExtResource("8_edr6m")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerEcole" unique_id=638464838]
-position = Vector2(200, 324)
-shape = SubResource("RectangleShape2D_4ppgb")
-
-[node name="entree_apres_ecolearker2D" type="Marker2D" parent="TriggerEcole" unique_id=1224839632]
 position = Vector2(1, 1)
 
 [node name="TriggerPort" type="Area2D" parent="." unique_id=444723381]
@@ -25327,7 +25313,7 @@ position = Vector2(90, 988)
 script = ExtResource("9_525qm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerPort" unique_id=1986073766]
-position = Vector2(350, 324)
+position = Vector2(-3, 1)
 shape = SubResource("RectangleShape2D_c3moh")
 
 [node name="entree_port" type="Marker2D" parent="TriggerPort" unique_id=1032895939]
@@ -25342,6 +25328,14 @@ shape = SubResource("RectangleShape2D_7sf4v")
 
 [node name="entree_jirou" type="Marker2D" parent="TriggerJirou" unique_id=959324708]
 position = Vector2(1, 1)
+
+[node name="TriggerMaisonRen" type="Area2D" parent="TriggerJirou" unique_id=588519440]
+position = Vector2(-348, -650)
+script = ExtResource("12_kul31")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerJirou/TriggerMaisonRen" unique_id=351413273]
+position = Vector2(315, 475)
+shape = SubResource("RectangleShape2D_kul31")
 
 [node name="Joueur" parent="." unique_id=1529799131 instance=ExtResource("9_4ppgb")]
 z_index = 5
@@ -25366,10 +25360,3 @@ layer_7/name = "au-dessus"
 layer_7/tile_data = PackedInt32Array(3735615, 3735552, 140, 3801151, 3735552, 141, 3866687, 3735552, 142, 3932223, 3735552, 143, 3735616, 3801088, 140, 3801152, 3801088, 141, 3866688, 3801088, 142, 3932224, 3801088, 143, 3735617, 3866624, 140, 3801153, 3866624, 141, 3866689, 3866624, 142, 3932225, 3866624, 143, 3735618, 3932160, 140, 3801154, 3932160, 141, 3866690, 3932160, 142, 3932226, 3932160, 143, 3735619, 3997696, 140, 3801155, 3997696, 141, 3866691, 3997696, 142, 3932227, 3997696, 143, 3473411, 3735552, 140, 3538947, 3735552, 141, 3604483, 3735552, 142, 3670019, 3735552, 143, 3473412, 3801088, 140, 3538948, 3801088, 141, 3604484, 3801088, 142, 3670020, 3801088, 143, 3473413, 3866624, 140, 3538949, 3866624, 141, 3604485, 3866624, 142, 3670021, 3866624, 143, 3473414, 3932160, 140, 3538950, 3932160, 141, 3604486, 3932160, 142, 3670022, 3932160, 143, 3473415, 3997696, 140, 3538951, 3997696, 141, 3604487, 3997696, 142, 3670023, 3997696, 143, 2293765, 3735552, 140, 2359301, 3735552, 141, 2424837, 3735552, 142, 2490373, 3735552, 143, 2293766, 3801088, 140, 2359302, 3801088, 141, 2424838, 3801088, 142, 2490374, 3801088, 143, 2293767, 3866624, 140, 2359303, 3866624, 141, 2424839, 3866624, 142, 2490375, 3866624, 143, 2293768, 3932160, 140, 2359304, 3932160, 141, 2424840, 3932160, 142, 2490376, 3932160, 143, 2293769, 3997696, 140, 2359305, 3997696, 141, 2424841, 3997696, 142, 2490377, 3997696, 143, 3866641, 3211264, 140, 3932177, 3211264, 141, 3997713, 3211264, 142, 4063249, 3211264, 143, 3866642, 3276800, 140, 3932178, 3276800, 141, 3997714, 3276800, 142, 4063250, 3276800, 143, 3866643, 3342336, 140, 3932179, 3342336, 141, 3997715, 3342336, 142, 4063251, 3342336, 143, 3866644, 3407872, 140, 3932180, 3407872, 141, 3997716, 3407872, 142, 4063252, 3407872, 143, 3866645, 3473408, 140, 3932181, 3473408, 141, 3997717, 3473408, 142, 4063253, 3473408, 143, 3866646, 3538944, 140, 3932182, 3538944, 141, 3997718, 3538944, 142, 4063254, 3538944, 143, 3866647, 3604480, 140, 3932183, 3604480, 141, 3997719, 3604480, 142, 4063255, 3604480, 143, 3604559, 3735552, 186, 3670095, 3735552, 187, 3735631, 3735552, 188, 3801167, 3735552, 189, 3604560, 3801088, 186, 3670096, 3801088, 187, 3735632, 3801088, 188, 3801168, 3801088, 189, 3604561, 3866624, 186, 3670097, 3866624, 187, 3735633, 3866624, 188, 3801169, 3866624, 189, 3604562, 3932160, 186, 3670098, 3932160, 187, 3735634, 3932160, 188, 3801170, 3932160, 189, 3604563, 3997696, 186, 3670099, 3997696, 187, 3735635, 3997696, 188, 3801171, 3997696, 189, 2162768, 2686976, 186, 2228304, 2686976, 187, 2293840, 2686976, 188, 2359376, 2686976, 189, 2162769, 2752512, 186, 2228305, 2752512, 187, 2293841, 2752512, 188, 2359377, 2752512, 189, 2162770, 2818048, 186, 2228306, 2818048, 187, 2293842, 2818048, 188, 2359378, 2818048, 189, 2162771, 2883584, 186, 2228307, 2883584, 187, 2293843, 2883584, 188, 2359379, 2883584, 189, 2162772, 2949120, 186, 2228308, 2949120, 187, 2293844, 2949120, 188, 2359380, 2949120, 189, 2162773, 3014656, 186, 2228309, 3014656, 187, 2293845, 3014656, 188, 2359381, 3014656, 189, 2162774, 3080192, 186, 2228310, 3080192, 187, 2293846, 3080192, 188, 2359382, 3080192, 189, 2162750, 2031616, 186, 2228286, 2031616, 187, 2293822, 2031616, 188, 2359358, 2031616, 189, 2162751, 2097152, 186, 2228287, 2097152, 187, 2293823, 2097152, 188, 2359359, 2097152, 189, 2162752, 2162688, 186, 2228288, 2162688, 187, 2293824, 2162688, 188, 2359360, 2162688, 189, 2162753, 2228224, 186, 2228289, 2228224, 187, 2293825, 2228224, 188, 2359361, 2228224, 189, 2162754, 2293760, 186, 2228290, 2293760, 187, 2293826, 2293760, 188, 2359362, 2293760, 189, 2162755, 2359296, 186, 2228291, 2359296, 187, 2293827, 2359296, 188, 2359363, 2359296, 189, 2162756, 2424832, 186, 2228292, 2424832, 187, 2293828, 2424832, 188, 2359364, 2424832, 189, 2162757, 2490368, 186, 2228293, 2490368, 187, 2293829, 2490368, 188, 2359365, 2490368, 189, 2162758, 2555904, 186, 2228294, 2555904, 187, 2293830, 2555904, 188, 2359366, 2555904, 189, 2162759, 2031616, 186, 2228295, 2031616, 187, 2293831, 2031616, 188, 2359367, 2031616, 189, 1376273, 3211264, 186, 1441809, 3211264, 187, 1507345, 3211264, 188, 1572881, 3211264, 189, 1376274, 3276800, 186, 1441810, 3276800, 187, 1507346, 3276800, 188, 1572882, 3276800, 189, 1376275, 3342336, 186, 1441811, 3342336, 187, 1507347, 3342336, 188, 1572883, 3342336, 189, 1376276, 3407872, 186, 1441812, 3407872, 187, 1507348, 3407872, 188, 1572884, 3407872, 189, 1376277, 3473408, 186, 1441813, 3473408, 187, 1507349, 3473408, 188, 1572885, 3473408, 189, 1376278, 3538944, 186, 1441814, 3538944, 187, 1507350, 3538944, 188, 1572886, 3538944, 189, 1376279, 3604480, 186, 1441815, 3604480, 187, 1507351, 3604480, 188, 1572887, 3604480, 189, 2097171, 3735552, 186, 2162707, 3735552, 187, 2228243, 3735552, 188, 2293779, 3735552, 189, 2097172, 3801088, 186, 2162708, 3801088, 187, 2228244, 3801088, 188, 2293780, 3801088, 189, 2097173, 3866624, 186, 2162709, 3866624, 187, 2228245, 3866624, 188, 2293781, 3866624, 189, 2097174, 3932160, 186, 2162710, 3932160, 187, 2228246, 3932160, 188, 2293782, 3932160, 189, 2097175, 3997696, 186, 2162711, 3997696, 187, 2228247, 3997696, 188, 2293783, 3997696, 189)
 
 [node name="DialogueBox" parent="." unique_id=2103577796 instance=ExtResource("3_13bj3")]
-
-[node name="TriggerMaisonRen" type="Area2D" parent="." unique_id=588519440]
-script = ExtResource("12_kul31")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerMaisonRen" unique_id=351413273]
-position = Vector2(315, 475)
-shape = SubResource("RectangleShape2D_kul31")
