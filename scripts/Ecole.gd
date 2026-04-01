@@ -3,6 +3,7 @@ extends Node2D
 func _ready() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
+	StoryManager.avancer(StoryManager.Etape.ECOLE_VUE)
 	DialogueManager.show_dialogue([
 		["Mère", "Tu as trouvé l'escalier."],
 		["Ren",  "Tu savais ?"],
