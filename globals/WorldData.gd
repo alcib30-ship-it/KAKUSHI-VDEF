@@ -238,7 +238,7 @@ const SCENES = {
 			{
 				"id": "sortie_ecole",
 				"type": "transition",
-				"position": Vector2(600, 650),
+				"position": Vector2(0, 0),
 				"size": Vector2(200, 32),
 				"destination": "ecole",
 				"condition": "COMBAT_GAGNE",
