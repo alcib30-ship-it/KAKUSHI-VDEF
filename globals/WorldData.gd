@@ -1,6 +1,4 @@
 # globals/WorldData.gd
-# AUTOLOAD — Nom : WorldData
-# Toutes les données du jeu — PNJ, triggers, dialogues, transitions
 extends Node
 
 # ═══════════════════════════════════════════════
@@ -81,7 +79,6 @@ const DIALOGUES = {
 		{"speaker": "",      "text": "— Chapitre 1 — L'Éveil — Terminé —"},
 	],
 
-	# PNJ de décor — dialogues bateau
 	"pecheur_01": [
 		{"speaker": "Pêcheur", "text": "La mer est calme ce matin. Trop calme."},
 	],
@@ -94,6 +91,8 @@ const DIALOGUES = {
 	"marchand_01": [
 		{"speaker": "Marchand", "text": "Potions, herbes, équipement. Je suis là si t'as besoin."},
 	],
+
+	# Route 1
 	"route1_bloquee": [
 		{"speaker": "", "text": "Un arbre massif barre la route. Il vient de tomber."},
 		{"speaker": "", "text": "Impossible de passer par là pour l'instant."},
@@ -102,6 +101,65 @@ const DIALOGUES = {
 		{"speaker": "", "text": "Un éboulement bloque la suite. Les pierres sont trop lourdes."},
 		{"speaker": "", "text": "Il faudra revenir avec du renfort. ▶ Débloqué au Chapitre 4"},
 	],
+
+	# Indices au sol — hints narratifs sur les Kakushi
+	"indice_plumes_kagemi": [
+		{"speaker": "", "text": "Des plumes noires au sol. Légères, presque translucides."},
+		{"speaker": "Ren", "text": "Une créature nocturne rôde ici. Elle doit revenir la nuit."},
+	],
+	"indice_traces_moshu": [
+		{"speaker": "", "text": "Des empreintes profondes dans la terre. Un cerf, peut-être. Mais trop grandes."},
+		{"speaker": "Ren", "text": "Ça sent les fleurs. Bizarre pour une forêt comme celle-là."},
+	],
+}
+
+# ═══════════════════════════════════════════════
+# KAKUSHI — données complètes pour le système silhouettes
+# Sera lu par WorldLoader quand les sprites seront disponibles
+# ═══════════════════════════════════════════════
+const KAKUSHI = {
+	"kitsufi": {
+		"rarete": "commun",
+		"couleur_particules": Color(0.2, 0.8, 0.2, 1),   # vert
+		"comportement": "curieux",   # se déplace vers Ren
+		"periode": "toujours",
+		"poids": 40,
+	},
+	"ondrak": {
+		"rarete": "commun",
+		"couleur_particules": Color(0.2, 0.2, 0.8, 1),   # bleu
+		"comportement": "mefiant",   # s'éloigne si Ren court
+		"periode": "toujours",
+		"poids": 30,
+	},
+	"moshu": {
+		"rarete": "peu_commun",
+		"couleur_particules": Color(0.2, 0.5, 0.8, 1),   # bleu
+		"comportement": "mefiant",
+		"periode": "toujours",
+		"poids": 20,
+	},
+	"zappiko": {
+		"rarete": "peu_commun",
+		"couleur_particules": Color(0.2, 0.5, 0.8, 1),   # bleu
+		"comportement": "curieux",
+		"periode": "toujours",
+		"poids": 8,
+	},
+	"kagemi": {
+		"rarete": "rare",
+		"couleur_particules": Color(1.0, 0.4, 0.7, 1),   # rose
+		"comportement": "mefiant",
+		"periode": "nuit",           # uniquement 21h-6h réel
+		"poids": 2,
+	},
+	"embrix": {
+		"rarete": "legendaire",
+		"couleur_particules": Color(1.0, 0.2, 0.2, 1),   # rouge
+		"comportement": "agressif",  # fonce sur Ren
+		"periode": "toujours",
+		"poids": 0,                  # jamais en rencontre aléatoire
+	},
 }
 
 # ═══════════════════════════════════════════════
@@ -184,17 +242,39 @@ const SCENES = {
 				"size": Vector2(48, 48),
 				"dialogue_id": "balise_1",
 				"condition": "YAMOTO_VU",
-				"condition_extra": "not:BALISE_1_ACTIVEE",
+				"condition_extra": "not:balise_1_activee",
 				"avance_etape": "BALISE_ACTIVEE",
 				"flag": "balise_1_activee",
 			},
+			# Route 1 — débloquée après YAMOTO_VU
+			# L'arbre est tombé avant — bloque jusqu'à ce qu'on parle à Yamoto
+			{
+				"id": "route1_arbre_bloque",
+				"type": "dialogue",
+				"position": Vector2(1600, 300),
+				"size": Vector2(32, 64),
+				"dialogue_id": "route1_bloquee",
+				"condition": "not:YAMOTO_VU",
+				"repeatable": true,
+			},
+			{
+				"id": "route1_entree",
+				"type": "transition",
+				"position": Vector2(1600, 300),
+				"size": Vector2(32, 64),
+				"destination": "route1_zone",
+				"condition": "YAMOTO_VU",
+				"avance_etape": "ROUTE1_DEBLOQUEE",
+				"sauvegarde_position": "monde",
+			},
+			# Consortium — apparaît en même temps que la Route 1
 			{
 				"id": "consortium",
 				"type": "dialogue_choix",
 				"position": Vector2(700, 575),
 				"size": Vector2(48, 48),
 				"dialogue_id": "consortium_ch1",
-				"condition": "BALISE_ACTIVEE",
+				"condition": "YAMOTO_VU",
 				"avance_etape": "CONSORTIUM_VU",
 				"choix_texte": "Donner ton nom ? (O) — Refuser. (N)",
 				"on_oui": "consortium_nom",
@@ -211,14 +291,44 @@ const SCENES = {
 				"avance_etape": "CHAPITRE_1_TERMINE",
 				"inventaire": {"a_lettre_jirou": true, "a_potions": 3},
 			},
+		],
+		# Route 1 intégrée dans monde — zone accessible depuis monde.tscn
+		# WorldLoader instanciera les silhouettes ici quand les sprites seront prêts
+		"kakushi_zones": [
 			{
-				"id": "route1_arbre",
-				"type": "dialogue",
-				"position": Vector2(1600, 300),
-				"size": Vector2(32, 64),
-				"dialogue_id": "route1_bloquee",
-				"condition": "not:ROUTE1_DEBLOQUEE",
-				"repeatable": true,
+				"id": "route1_zone",
+				"nom": "Route 1 — Hautes herbes",
+				"position": Vector2(1700, 100),
+				"size": Vector2(800, 600),
+				"texture": "hautes_herbes",
+				"kakushi": ["kitsufi", "ondrak", "moshu", "zappiko", "kagemi"],
+				"indices": [
+					{
+						"id": "indice_plumes",
+						"type": "indice",
+						"position": Vector2(2000, 250),
+						"size": Vector2(32, 32),
+						"texte": "Des plumes noires au sol. Légères, presque translucides. Une créature nocturne rôde ici la nuit.",
+						"repeatable": false,
+					},
+					{
+						"id": "indice_traces",
+						"type": "indice",
+						"position": Vector2(2200, 400),
+						"size": Vector2(32, 32),
+						"texte": "Des empreintes profondes dans la terre. Ça sent les fleurs. Bizarre pour une route comme celle-là.",
+						"repeatable": false,
+					},
+				],
+				"mur_fin": {
+					"id": "route1_fin",
+					"type": "dialogue",
+					"position": Vector2(2500, 300),
+					"size": Vector2(32, 400),
+					"dialogue_id": "route1_deblocable",
+					"condition": "",
+					"repeatable": true,
+				},
 			},
 		],
 	},
@@ -243,21 +353,6 @@ const SCENES = {
 				"destination": "ecole",
 				"condition": "COMBAT_GAGNE",
 				"sauvegarde_position": "foret",
-			},
-		],
-	},
-
-	"route1": {
-		"pnj": [],
-		"triggers": [
-			{
-				"id": "route1_fin",
-				"type": "dialogue",
-				"position": Vector2(800, 300),
-				"size": Vector2(32, 64),
-				"dialogue_id": "route1_deblocable",
-				"condition": "",
-				"repeatable": true,
 			},
 		],
 	},

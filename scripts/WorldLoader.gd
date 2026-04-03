@@ -11,6 +11,7 @@ func charger(scene_id: String) -> void:
 
 	_instancier_triggers(data.get("triggers", []), parent)
 	_instancier_pnj(data.get("pnj", []), parent)
+	_instancier_kakushi_zones(data.get("kakushi_zones", []), parent)
 
 func _instancier_triggers(liste: Array, parent: Node) -> void:
 	for t in liste:
@@ -47,6 +48,24 @@ func _instancier_pnj(liste: Array, parent: Node) -> void:
 		trigger.name = "Trigger_" + pnj_data.get("id", "unknown")
 		pnj.add_child(trigger)
 		trigger.setup(trigger_data)
+
+func _instancier_kakushi_zones(zones: Array, parent: Node) -> void:
+	for zone in zones:
+		# Indices au sol — instanciés maintenant
+		for indice in zone.get("indices", []):
+			var t = load("res://scripts/AutoTrigger.gd").new()
+			t.name = "AutoTrigger_" + indice.get("id", "indice")
+			parent.add_child(t)
+			t.setup(indice)
+		# Mur de fin de zone
+		var mur = zone.get("mur_fin", {})
+		if not mur.is_empty():
+			var t = load("res://scripts/AutoTrigger.gd").new()
+			t.name = "AutoTrigger_" + mur.get("id", "mur")
+			parent.add_child(t)
+			t.setup(mur)
+		# Silhouettes Kakushi — déférées à la session sprites
+		# WorldLoader.instancier_silhouettes(zone) sera appelé ici plus tard
 
 func _condition_pnj_ok(pnj_data: Dictionary) -> bool:
 	var cond = pnj_data.get("condition", "")

@@ -1,6 +1,4 @@
 # scripts/AutoTrigger.gd
-# Trigger universel — remplace tous les TriggerXxx.gd
-# Instancié par WorldLoader, configuré via un Dictionary
 extends Area2D
 
 var data : Dictionary = {}
@@ -30,16 +28,13 @@ func _condition_ok() -> bool:
 	var cond = data.get("condition", "")
 	if cond == "":
 		return true
-	# Condition négative : "not:ETAPE"
 	if cond.begins_with("not:"):
 		var etape_str = cond.substr(4)
 		if not StoryManager.Etape.has(etape_str):
 			return true
 		return not StoryManager.est_a_partir_de(StoryManager.Etape[etape_str])
-	# Condition positive : "ETAPE"
 	if not StoryManager.Etape.has(cond):
 		return false
-	# Condition extra (ex: flag global)
 	var cond_extra = data.get("condition_extra", "")
 	if cond_extra != "":
 		if cond_extra.begins_with("not:"):
@@ -49,7 +44,6 @@ func _condition_ok() -> bool:
 	return StoryManager.est_a_partir_de(StoryManager.Etape[cond])
 
 func _executer() -> void:
-	# Avancer l'étape si définie
 	var etape_str = data.get("avance_etape", "")
 	if etape_str != "" and StoryManager.Etape.has(etape_str):
 		StoryManager.avancer(StoryManager.Etape[etape_str])
@@ -65,6 +59,8 @@ func _executer() -> void:
 			_faire_transition()
 		"balise":
 			_faire_balise()
+		"indice":
+			_faire_indice()
 
 # ─── DIALOGUE SIMPLE ───────────────────────────
 func _faire_dialogue(dialogue_id: String, callback: Callable) -> void:
@@ -87,14 +83,12 @@ func _ouvrir_choix() -> void:
 	)
 
 func _apres_choix(resultat: String) -> void:
-	# Enregistrer le choix dans StoryManager si applicable
 	var trigger_id = data.get("id", "")
 	if trigger_id == "jirou":
 		StoryManager.choix_chemin_jirou = resultat
 	elif trigger_id == "consortium":
 		StoryManager.choix_consortium = resultat
 		Global.nom_donne_consortium = (resultat == "consortium_nom")
-	# Suite dialogue
 	var suite_id = data.get("suite_dialogue_id", "")
 	if suite_id != "":
 		_faire_dialogue(suite_id, Callable())
@@ -113,7 +107,6 @@ func _faire_transition() -> void:
 		Global.derniere_position_monde = Vector2(Global.spawn_x, Global.spawn_y)
 	elif sauvegarde == "foret":
 		Global.derniere_position_foret = Vector2(Global.spawn_x, Global.spawn_y)
-
 	var dest = data.get("destination", "monde")
 	match dest:
 		"monde":  Transition.vers_monde()
@@ -128,3 +121,12 @@ func _faire_balise() -> void:
 	if flag != "":
 		Global.set(flag, true)
 	_faire_dialogue(data.get("dialogue_id", ""), Callable())
+
+# ─── INDICE AU SOL ─────────────────────────────
+# Plumes, écailles, traces — indices narratifs sur les Kakushi rares
+# Se déclenche une seule fois, donne un hint sur quand/où revenir
+func _faire_indice() -> void:
+	var texte = data.get("texte", "Des traces mystérieuses au sol...")
+	DialogueManager.show_dialogue([
+		["", texte]
+	], Callable())

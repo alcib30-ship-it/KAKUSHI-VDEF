@@ -1,8 +1,28 @@
 [gd_scene format=3 uid="uid://ki57u6e6fdsf"]
 
-[ext_resource type="Script" uid="uid://btvihkjw8jvuk" path="res://scripts/Agent.gd" id="1_7e1ma"]
 [ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="2_u0ubg"]
 [ext_resource type="Texture2D" uid="uid://oc6cx6t21wxd" path="res://sprites/personnages/agent.png" id="3_u0ubg"]
+
+[sub_resource type="GDScript" id="GDScript_7e1ma"]
+script/source = "extends Node2D
+
+@onready var dialogue = $DialogueBox
+
+func _ready():
+	await get_tree().process_frame
+	await get_tree().create_timer(0.5).timeout
+	dialogue.afficher_sequence([
+		[\"Agent\", \"Inventaire de routine. Le Consortium recense tous les Kakushi de la zone.\"],
+		[\"Agent\", \"Intéressant. Un Tisseur. Ton nom ?\"],
+		[\"\", \"[Appuie sur Entrée pour continuer]\"],
+		[\"Agent\", \"Peu importe. On se reverra.\"],
+		[\"Jirou\", \"Ces gens ne recensent pas. Ils prennent.\"],
+	], _apres_dialogue)
+
+func _apres_dialogue():
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file(\"res://scenes/monde.tscn\")
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hfgq"]
 atlas = ExtResource("3_u0ubg")
@@ -107,7 +127,7 @@ animations = [{
 }]
 
 [node name="Agent" type="Node2D" unique_id=2124721773]
-script = ExtResource("1_7e1ma")
+script = SubResource("GDScript_7e1ma")
 
 [node name="DialogueBox" parent="." unique_id=2103577796 instance=ExtResource("2_u0ubg")]
 

@@ -1,8 +1,26 @@
 [gd_scene format=3 uid="uid://b27od45tk17vm"]
 
-[ext_resource type="Script" uid="uid://b3v6n4da7ktsj" path="res://scripts/Pere.gd" id="1_owmja"]
 [ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="2_f2w47"]
 [ext_resource type="Texture2D" uid="uid://u5vwj8667ftg" path="res://sprites/personnages/pere.png" id="3_f2w47"]
+
+[sub_resource type="GDScript" id="GDScript_owmja"]
+script/source = "extends Node2D
+
+@onready var dialogue = $DialogueBox
+
+func _ready():
+	await get_tree().process_frame
+	await get_tree().create_timer(0.5).timeout
+	dialogue.afficher_sequence([
+		[\"Père\", \"Tu as dormi dehors encore.\"],
+		[\"Ren\", \"...\"],
+		[\"Père\", \"Fais attention sur la route.\"],
+	], _apres_dialogue)
+
+func _apres_dialogue():
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file(\"res://scenes/monde.tscn\")
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xw74n"]
 atlas = ExtResource("3_f2w47")
@@ -107,7 +125,7 @@ animations = [{
 }]
 
 [node name="Pere" type="Node2D" unique_id=796802738]
-script = ExtResource("1_owmja")
+script = SubResource("GDScript_owmja")
 
 [node name="DialogueBox" parent="." unique_id=2103577796 instance=ExtResource("2_f2w47")]
 

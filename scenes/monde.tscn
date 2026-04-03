@@ -1,10 +1,22 @@
 [gd_scene format=3 uid="uid://b3nddcw4vnge5"]
 
 [ext_resource type="Script" uid="uid://dbgl43vf5sj14" path="res://scenes/Monde.gd" id="1_kul31"]
-[ext_resource type="Script" uid="uid://dq2y2f44d1gew" path="res://scripts/area_2d.gd" id="2_13bj3"]
 [ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="3_13bj3"]
 [ext_resource type="PackedScene" uid="uid://5h03vd5glugc" path="res://scenes/Joueur.tscn" id="9_4ppgb"]
 [ext_resource type="Texture2D" uid="uid://cvbb43hrtsrkx" path="res://assets/outdoor/Tilesetv2.png" id="11_c3moh"]
+
+[sub_resource type="GDScript" id="GDScript_5o5ke"]
+script/source = "extends Area2D
+
+@onready var dialogue = get_node(\"../DialogueBox\")
+
+func _ready():
+	body_entered.connect(_on_body_entered)
+
+func _on_body_entered(body):
+	if body is CharacterBody2D:
+		dialogue.afficher(\"Jirou\", \"Si tu croises quelque chose qui te regarde sans fuir... reste immobile. Laisse-le venir à toi.\")
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_peue8"]
 radius = 80.0
@@ -25220,7 +25232,7 @@ script = ExtResource("1_kul31")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1439894625]
 position = Vector2(201, 200)
-script = ExtResource("2_13bj3")
+script = SubResource("GDScript_5o5ke")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=463796062]
 shape = SubResource("CircleShape2D_peue8")

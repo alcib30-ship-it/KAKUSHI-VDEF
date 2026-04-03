@@ -1,8 +1,28 @@
 [gd_scene format=3 uid="uid://bbowefvfs5i8v"]
 
-[ext_resource type="Script" uid="uid://br4du3jmqcsie" path="res://scripts/Port.gd" id="1_iv2cg"]
 [ext_resource type="PackedScene" uid="uid://cs13r5rp4fd00" path="res://ui/DialogueBox.tscn" id="2_06fr3"]
 [ext_resource type="Texture2D" uid="uid://d0r03to56ft1d" path="res://sprites/personnages/yamoto.png" id="3_06fr3"]
+
+[sub_resource type="GDScript" id="GDScript_iv2cg"]
+script/source = "extends Node2D
+
+@onready var dialogue = $DialogueBox
+
+func _ready():
+	await get_tree().process_frame
+	await get_tree().create_timer(0.5).timeout
+	dialogue.afficher_sequence([
+		[\"Yamoto\", \"Alors c'est toi.\"],
+		[\"Ren\", \"Ma mère m'a dit de venir vous voir.\"],
+		[\"Yamoto\", \"Je sais. Je t'attendais depuis un moment.\"],
+		[\"Yamoto\", \"Un Tisseur c'est quelqu'un qui peut créer un Lien avec un Kakushi. Pas les dresser. Pas les capturer. Créer un Lien. C'est différent.\"],
+		[\"Ren\", \"C'est quoi la différence ?\"],
+		[\"Yamoto\", \"La différence c'est que lui... il a choisi. Pas toi.\"],
+		[\"Yamoto\", \"Prends soin de ce Lien. C'est la chose la plus fragile et la plus solide que tu auras jamais.\"],
+		[\"Yamoto\", \"Oh — et la salamandre sur la route de la forêt. Elle garde une Balise de l'Éclat.\"],
+		[\"Yamoto\", \"Tu peux y retourner maintenant que t'as un compagnon.\"],
+	], Callable())
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2nbd"]
 atlas = ExtResource("3_06fr3")
@@ -107,7 +127,7 @@ animations = [{
 }]
 
 [node name="Port" type="Node2D" unique_id=930197228]
-script = ExtResource("1_iv2cg")
+script = SubResource("GDScript_iv2cg")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1985269244]
 custom_minimum_size = Vector2(1152, 648)
