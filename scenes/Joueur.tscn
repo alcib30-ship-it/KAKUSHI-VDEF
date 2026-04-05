@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://r7jhppagf1hu" path="res://sprites/kakushi/pixel_art_large (1).png" id="2_3p1t5"]
 [ext_resource type="Script" uid="uid://ba2o04ejife0a" path="res://scripts/Kakushi.gd" id="3_3p1t5"]
 [ext_resource type="Texture2D" uid="uid://m7i4ntxtxstt" path="res://sprites/personnages/renF.png" id="4_7kq1s"]
+[ext_resource type="PackedScene" uid="uid://de42dl483ft71" path="res://ui/MenuJoueur.tscn" id="5_fdjei"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7kq1s"]
 atlas = ExtResource("2_3p1t5")
@@ -279,3 +280,5 @@ offset_top = -16.0
 offset_right = 24.0
 offset_bottom = 24.0
 color = Color(0.039215688, 0.7058824, 1, 1)
+
+[node name="MenuJoueur" parent="." unique_id=524921567 instance=ExtResource("5_fdjei")]

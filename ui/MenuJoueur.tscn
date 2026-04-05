@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://de42dl483ft71"]
+
+[ext_resource type="Script" uid="uid://cdlb6xe3x2gtv" path="res://scripts/MenuJoueur.gd" id="1_njrf4"]
+
+[node name="MenuJoueur" type="CanvasLayer" unique_id=524921567]
+script = ExtResource("1_njrf4")
+
+[node name="Fond" type="Control" parent="." unique_id=1260313743]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

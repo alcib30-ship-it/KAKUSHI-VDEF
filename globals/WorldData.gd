@@ -160,8 +160,58 @@ const KAKUSHI = {
 		"periode": "toujours",
 		"poids": 0,                  # jamais en rencontre aléatoire
 	},
+	"ondami": {
+		"rarete": "rare",
+		"couleur_particules": Color(1.0, 0.4, 0.7, 1),
+		"comportement": "fuite",
+		"periode": "toujours",
+		"poids": 0,
+		"capturable": false,
+	},
 }
 
+const FRAGMENTS_BALISE = {
+	1: "La lumière qui tombe n'est pas toujours une catastrophe. Parfois c'est une réponse.",
+	2: "", 3: "", 4: "", 5: "", 6: "", 7: "",
+}
+
+const KAKUSHI_LORE = {
+	"kitsufi": {
+		"auteur": "Jirou",
+		"texte": "Un renard aux queues enflammées. Curieux de nature, il choisit toujours quelqu'un qui n'a pas peur du feu. On dit qu'il teste le courage avant de se laisser approcher.",
+		"historique": [],
+	},
+	"ondrak": {
+		"auteur": "Yamoto",
+		"texte": "Dragon marin discret. Il ne fait confiance qu'aux patients. J'en ai vu un attendre trois jours immobile avant de créer un Lien. Trois jours.",
+		"historique": [],
+	},
+	"moshu": {
+		"auteur": "Yamoto",
+		"texte": "Le cerf aux bois fleuris sent les émotions avant que tu les ressentes toi-même. Il ne choisit pas les forts. Il choisit les honnêtes.",
+		"historique": [],
+	},
+	"zappiko": {
+		"auteur": "Jirou",
+		"texte": "Tanuki électrique, impatient, imprévisible. Si tu restes immobile trop longtemps il s'en va. Il veut quelqu'un qui bouge autant que lui.",
+		"historique": [],
+	},
+	"kagemi": {
+		"auteur": "Inconnu",
+		"texte": "Personne ne sait qui a écrit cette entrée. Elle était là un matin dans le carnet de Yamoto. Il jure qu'il ne l'a pas écrite.",
+		"historique": [],
+	},
+	"ondami": {
+		"auteur": "Jirou",
+		"texte": "Une loutre. Rapide. Insaisissable. J'en ai vu une une fois, sur la Route 1. Elle m'a regardé exactement deux secondes puis elle a disparu. Je ne l'ai jamais revue.",
+		"historique": [],
+	},
+	"embrix": {
+		"auteur": "Yamoto",
+		"texte": "Embrix ne crée pas de Lien. Il teste. Si tu le bats, il te respecte. Si tu fuis, il te méprise. Et il s'en souvient.",
+		"historique": [],
+	},
+}
 # ═══════════════════════════════════════════════
 # SCÈNES
 # ═══════════════════════════════════════════════
@@ -249,24 +299,24 @@ const SCENES = {
 			# Route 1 — débloquée après YAMOTO_VU
 			# L'arbre est tombé avant — bloque jusqu'à ce qu'on parle à Yamoto
 			{
-				"id": "route1_arbre_bloque",
+			   "id": "route1_arbre_bloque",
 				"type": "dialogue",
-				"position": Vector2(1600, 300),
-				"size": Vector2(32, 64),
+				"position": Vector2(755, 130),
+				"size": Vector2(130, 48),
 				"dialogue_id": "route1_bloquee",
 				"condition": "not:YAMOTO_VU",
 				"repeatable": true,
-			},
-			{
+},
+{
 				"id": "route1_entree",
 				"type": "transition",
-				"position": Vector2(1600, 300),
-				"size": Vector2(32, 64),
+				"position": Vector2(755, 130),
+				"size": Vector2(130, 48),
 				"destination": "route1_zone",
 				"condition": "YAMOTO_VU",
 				"avance_etape": "ROUTE1_DEBLOQUEE",
 				"sauvegarde_position": "monde",
-			},
+},
 			# Consortium — apparaît en même temps que la Route 1
 			{
 				"id": "consortium",
