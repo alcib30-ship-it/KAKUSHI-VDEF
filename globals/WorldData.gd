@@ -407,3 +407,137 @@ const SCENES = {
 		],
 	},
 }
+# ═══════════════════════════════════════════════
+# TABLE DES 12 TYPES
+# ═══════════════════════════════════════════════
+const TYPE_TABLE = {
+	"feu":    {"feu":0.5,"eau":0.5,"foudre":1.0,"nature":2.0,"ombre":1.0,"glace":1.0,"terre":1.0,"lune":1.0,"cristal":2.0,"vent":1.0,"plasma":1.0,"spectre":1.0},
+	"eau":    {"feu":2.0,"eau":0.5,"foudre":0.5,"nature":1.0,"ombre":1.0,"glace":2.0,"terre":1.0,"lune":1.0,"cristal":1.0,"vent":1.0,"plasma":1.0,"spectre":1.0},
+	"foudre": {"feu":1.0,"eau":2.0,"foudre":1.0,"nature":0.5,"ombre":1.0,"glace":1.0,"terre":0.5,"lune":1.0,"cristal":1.0,"vent":2.0,"plasma":1.0,"spectre":1.0},
+	"nature": {"feu":0.5,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":0.5,"glace":1.0,"terre":2.0,"lune":1.0,"cristal":0.5,"vent":1.0,"plasma":1.0,"spectre":1.0},
+	"ombre":  {"feu":1.0,"eau":1.0,"foudre":1.0,"nature":0.5,"ombre":0.5,"glace":1.0,"terre":1.0,"lune":2.0,"cristal":1.0,"vent":1.0,"plasma":1.0,"spectre":2.0},
+	"glace":  {"feu":0.5,"eau":1.0,"foudre":1.0,"nature":2.0,"ombre":1.0,"glace":0.5,"terre":1.0,"lune":1.0,"cristal":1.0,"vent":2.0,"plasma":1.0,"spectre":1.0},
+	"terre":  {"feu":2.0,"eau":1.0,"foudre":0.5,"nature":1.0,"ombre":1.0,"glace":1.0,"terre":0.5,"lune":1.0,"cristal":2.0,"vent":1.0,"plasma":1.0,"spectre":1.0},
+	"lune":   {"feu":1.0,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":2.0,"glace":1.0,"terre":1.0,"lune":0.5,"cristal":1.0,"vent":1.0,"plasma":0.5,"spectre":2.0},
+	"cristal":{"feu":0.5,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":1.0,"glace":2.0,"terre":0.5,"lune":1.0,"cristal":1.0,"vent":2.0,"plasma":1.0,"spectre":1.0},
+	"vent":   {"feu":1.0,"eau":1.0,"foudre":0.5,"nature":2.0,"ombre":1.0,"glace":1.0,"terre":1.0,"lune":1.0,"cristal":0.5,"vent":0.5,"plasma":1.0,"spectre":1.0},
+	"plasma": {"feu":1.0,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":1.0,"glace":1.0,"terre":1.0,"lune":2.0,"cristal":2.0,"vent":1.0,"plasma":0.5,"spectre":0.0},
+	"spectre":{"feu":1.0,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":0.5,"glace":1.0,"terre":1.0,"lune":2.0,"cristal":1.0,"vent":1.0,"plasma":0.0,"spectre":0.5},
+	"neutre": {"feu":1.0,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":1.0,"glace":1.0,"terre":1.0,"lune":1.0,"cristal":1.0,"vent":1.0,"plasma":1.0,"spectre":1.0},
+}
+
+# ═══════════════════════════════════════════════
+# ALTÉRATIONS D'ÉCLAT
+# ═══════════════════════════════════════════════
+const ALTERATIONS = {
+	"surchauffe":        {"label":"Surchauffe",        "source":"feu",    "duree":3, "effet":"je_max_50"},
+	"dilution":          {"label":"Dilution",          "source":"eau",    "duree":4, "effet":"cout_je_plus10"},
+	"court_circuit":     {"label":"Court-Circuit",     "source":"foudre", "duree":1, "effet":"reset_tempo"},
+	"entrave":           {"label":"Entrave",           "source":"nature", "duree":3, "effet":"spd_div2"},
+	"miroir_brise":      {"label":"Miroir Brise",      "source":"ombre",  "duree":4, "effet":"reflet_10pct"},
+	"cristallisation":   {"label":"Cristallisation",   "source":"glace",  "duree":2, "effet":"def_plus25_spd_div2"},
+	"dissipation":       {"label":"Dissipation",       "source":"plasma", "duree":3, "effet":"lien_zero"},
+	"resonance_inversee":{"label":"Resonance Inversee","source":"spectre","duree":2, "effet":"soins_degats"},
+	"eclat_sature":      {"label":"Eclat Sature",      "source":"lune",   "duree":3, "effet":"je_vide_15"},
+	"turbulence":        {"label":"Turbulence",        "source":"vent",   "duree":3, "effet":"tempo_aleatoire"},
+}
+
+# ═══════════════════════════════════════════════
+# ATTAQUES — Ch.1
+# ═══════════════════════════════════════════════
+const ATTAQUES = {
+	"morsure_braise":   {"nom":"Morsure de Braise", "element":"feu",    "type":"physique","puissance":25,"je":0,  "alteration":"surchauffe",    "proba_alt":0.08, "esquivabilite":0.20},
+	"queue_enflammee":  {"nom":"Queue Enflammee",   "element":"feu",    "type":"special", "puissance":35,"je":20, "alteration":"surchauffe",    "proba_alt":0.25, "esquivabilite":0.15},
+	"rugissement":      {"nom":"Rugissement",       "element":"neutre", "type":"statut",  "puissance":0, "je":10, "alteration":"",              "proba_alt":0.00, "esquivabilite":0.00},
+	"canaliser":        {"nom":"Canaliser",         "element":"neutre", "type":"recharge","puissance":0, "je":0,  "alteration":"",              "proba_alt":0.00, "esquivabilite":0.00},
+	"jet_eau":          {"nom":"Jet d'Eau",         "element":"eau",    "type":"physique","puissance":20,"je":0,  "alteration":"dilution",      "proba_alt":0.08, "esquivabilite":0.25},
+	"vague_froide":     {"nom":"Vague Froide",      "element":"eau",    "type":"special", "puissance":28,"je":20, "alteration":"dilution",      "proba_alt":0.20, "esquivabilite":0.15},
+	"fouet_vegetal":    {"nom":"Fouet Vegetal",     "element":"nature", "type":"physique","puissance":25,"je":0,  "alteration":"entrave",       "proba_alt":0.08, "esquivabilite":0.20},
+	"pollen_endormi":   {"nom":"Pollen Endormi",    "element":"nature", "type":"statut",  "puissance":0, "je":20, "alteration":"entrave",       "proba_alt":1.00, "esquivabilite":0.00},
+	"eclair_rapide":    {"nom":"Eclair Rapide",     "element":"foudre", "type":"special", "puissance":30,"je":20, "alteration":"court_circuit", "proba_alt":0.20, "esquivabilite":0.30},
+	"surcharge":        {"nom":"Surcharge",         "element":"foudre", "type":"special", "puissance":50,"je":35, "alteration":"court_circuit", "proba_alt":0.10, "esquivabilite":0.05},
+	"reflet_brise":     {"nom":"Reflet Brise",      "element":"ombre",  "type":"special", "puissance":28,"je":20, "alteration":"miroir_brise",  "proba_alt":0.25, "esquivabilite":0.20},
+	"disparition":      {"nom":"Disparition",       "element":"ombre",  "type":"statut",  "puissance":0, "je":15, "alteration":"",              "proba_alt":0.00, "esquivabilite":0.00},
+	"crachat_lave":     {"nom":"Crachat de Lave",   "element":"feu",    "type":"special", "puissance":40,"je":0,  "alteration":"surchauffe",    "proba_alt":0.30, "esquivabilite":0.25},
+	"charge_volcanique":{"nom":"Charge Volcanique", "element":"feu",    "type":"physique","puissance":45,"je":0,  "alteration":"",              "proba_alt":0.00, "esquivabilite":0.15},
+}
+
+# ═══════════════════════════════════════════════
+# KAKUSHI_STATS — Ch.1
+# ═══════════════════════════════════════════════
+const KAKUSHI_STATS = {
+	"kitsufi": {
+		"pv":45,"atk":52,"def":38,"spd":60,"je_max":100,
+		"element":"feu",
+		"attaques":["morsure_braise","queue_enflammee","rugissement","canaliser"],
+		"bonus_lien":{"atk":0.10,"spd":0.05},
+	},
+	"ondrak": {
+		"pv":50,"atk":40,"def":45,"spd":45,"je_max":100,
+		"element":"eau",
+		"attaques":["jet_eau","vague_froide","rugissement","canaliser"],
+		"bonus_lien":{"def":0.15,"pv":0.05},
+	},
+	"moshu": {
+		"pv":55,"atk":38,"def":50,"spd":40,"je_max":100,
+		"element":"nature",
+		"attaques":["fouet_vegetal","pollen_endormi","rugissement","canaliser"],
+		"bonus_lien":{"pv":0.10,"def":0.10},
+	},
+	"zappiko": {
+		"pv":38,"atk":58,"def":28,"spd":80,"je_max":100,
+		"element":"foudre",
+		"attaques":["eclair_rapide","surcharge","rugissement","canaliser"],
+		"bonus_lien":{"spd":0.20,"atk":0.05},
+	},
+	"kagemi": {
+		"pv":35,"atk":55,"def":32,"spd":70,"je_max":100,
+		"element":"ombre",
+		"attaques":["reflet_brise","disparition","rugissement","canaliser"],
+		"bonus_lien":{"atk":0.15,"spd":0.05},
+	},
+	"embrix": {
+		"pv":38,"atk":58,"def":28,"spd":50,"je_max":100,
+		"element":"feu",
+		"attaques":["crachat_lave","charge_volcanique","rugissement"],
+		"bonus_lien":{},
+	},
+}
+
+# ═══════════════════════════════════════════════
+# DIALOGUES COMBAT
+# ═══════════════════════════════════════════════
+const DIALOGUES_COMBAT = {
+	"intro_sauvage":         "Le kakushi te regarde pour combattre !.",
+	"intro_embrix":          "Embrix bloque le passage. Il a l'air agressif.",
+	"intro_tisseur":         "Son Kakushi se met en position.",
+	"intro_consortium":      "L'Agent sort un Pisto-Lien. Pas pour capturer.",
+	"victoire_sauvage":      "Il recule. Vcitoite tu as gagné le combat !",
+	"victoire_embrix":       "Embrix s'arrete. Il te regarde une derniere fois. Puis il disparait.",
+	"victoire_tisseur":      "Un signe de tete. Respect discret.",
+	"victoire_consortium":   "L'Agent range son materiel. Il note quelque chose.",
+	"defaite":               "Tu as perdu ce combat, la prochaine sera la bonne !",
+	"defaite_embrix":        "Embrix t'a epargné. Pourquoi ?",
+	"fuite_reussie":         "Tu as réussi à t'échappe ! Le Lien tremble legerement.",
+	"fuite_echouee":         "Impossible de passer. Il te garde en face de lui.",
+	"super_efficace":        "Cette attaque fait vraiment mal !",
+	"peu_efficace":          "Cette attaque ne fait pas très mal.",
+	"immunite":              "Aucun effet. Rien.",
+	"je_vide":               "Plus d'Eclat. Attaque de base uniquement.",
+	"canaliser":             "L'Eclat se recharge.",
+	"esquive_reussie":       "Esquivé de justesse.",
+	"esquive_ratee":         "Pas assez rapide.",
+	"alt_surchauffe":        "Trop d'Eclat d'un coup. La jauge deborde.",
+	"alt_dilution":          "L'Eclat se disperse. Chaque attaque coute plus.",
+	"alt_court_circuit":     "Court-circuit. Le Tempo repart de zero.",
+	"alt_entrave":           "Les membres refusent. Mouvement reduit.",
+	"alt_miroir_brise":      "Ce que tu infliges... tu le ressens aussi.",
+	"alt_cristallisation":   "Le froid fige. Defense renforcee. Mais plus rien ne bouge.",
+	"alt_dissipation":       "Le Lien s'efface temporairement. Tu es seul.",
+	"alt_resonance_inversee":"Quelque chose est inversé. Les soins brulent.",
+	"alt_eclat_sature":      "Trop plein. L'Eclat fuit tout seul.",
+	"alt_turbulence":        "Le Tempo deraille. Impossible a prevoir.",
+	"immunite_court_circuit":"Deja frappé la. Ca ne prend plus.",
+	"alt_dissipe":           "L'effet se dissipe.",
+	
+}

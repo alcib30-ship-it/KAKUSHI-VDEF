@@ -73,3 +73,6 @@ func _ready() -> void:
 	SaveManager.charger()
 var derniere_position_monde : Vector2 = Vector2(128, 192)
 var derniere_position_foret : Vector2 = Vector2(100, 324)
+
+var combat_retour_scene : String = "foret"
+var combat_est_boss : bool = false

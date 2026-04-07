@@ -11,74 +11,85 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.05882353, 0.039215688, 0.09803922, 1)
 
-[node name="EnnemiPanel" type="Node2D" parent="." unique_id=393081802]
-position = Vector2(600, 30)
+[node name="UI" type="CanvasLayer" parent="." unique_id=1042689943]
 
-[node name="EnnemiNom" type="Label" parent="EnnemiPanel" unique_id=503539608]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 20
-text = "Embrix"
+[node name="ZoneHaut" type="VBoxContainer" parent="UI" unique_id=1423904126]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="EnnemiPV" type="ProgressBar" parent="EnnemiPanel" unique_id=2141028308]
-offset_top = 30.0
-offset_right = 400.0
-offset_bottom = 57.0
+[node name="PanneauEnnemi" type="HBoxContainer" parent="UI/ZoneHaut" unique_id=190120068]
+layout_mode = 2
 
-[node name="JoueurPanel" type="Node2D" parent="." unique_id=1426578769]
+[node name="EnnemiNom" type="Label" parent="UI/ZoneHaut/PanneauEnnemi" unique_id=789033130]
+layout_mode = 2
 
-[node name="StarterNom" type="Label" parent="JoueurPanel" unique_id=1220437565]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 20
-text = "Kitsufi"
+[node name="EnnemiPV" type="ProgressBar" parent="UI/ZoneHaut/PanneauEnnemi" unique_id=85662566]
+layout_mode = 2
+max_value = 38.0
 
-[node name="JoueurPV" type="ProgressBar" parent="JoueurPanel" unique_id=396813376]
-offset_top = 30.0
-offset_right = 400.0
-offset_bottom = 57.0
+[node name="EnnemiATB" type="ProgressBar" parent="UI/ZoneHaut/PanneauEnnemi" unique_id=862799658]
+layout_mode = 2
+
+[node name="EtatEnnemi" type="Label" parent="UI/ZoneHaut/PanneauEnnemi" unique_id=1212013568]
+layout_mode = 2
+
+[node name="ZoneBas" type="VBoxContainer" parent="UI" unique_id=1552870777]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -89.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanneauJoueur" type="HBoxContainer" parent="UI/ZoneBas" unique_id=2083391284]
+layout_mode = 2
+
+[node name="StarterNom" type="Label" parent="UI/ZoneBas/PanneauJoueur" unique_id=55454053]
+layout_mode = 2
+
+[node name="JoueurPV" type="ProgressBar" parent="UI/ZoneBas/PanneauJoueur" unique_id=416905972]
+layout_mode = 2
 max_value = 45.0
-value = 45.0
 
-[node name="JoueurJE" type="ProgressBar" parent="JoueurPanel" unique_id=1727590165]
-offset_top = 58.0
-offset_right = 400.0
-offset_bottom = 85.0
-value = 100.0
+[node name="JoueurJE" type="ProgressBar" parent="UI/ZoneBas/PanneauJoueur" unique_id=622939483]
+layout_mode = 2
 
-[node name="BattleLog" type="Label" parent="." unique_id=1263497360]
-offset_left = 30.0
-offset_top = 320.0
-offset_right = 1122.0
-offset_bottom = 380.0
+[node name="JoueurATB" type="ProgressBar" parent="UI/ZoneBas/PanneauJoueur" unique_id=1365970327]
+layout_mode = 2
 
-[node name="Boutons" type="Node2D" parent="." unique_id=1481987962]
+[node name="EtatJoueur" type="Label" parent="UI/ZoneBas/PanneauJoueur" unique_id=6619867]
+layout_mode = 2
 
-[node name="BtnAttaque1" type="Button" parent="Boutons" unique_id=1936846753]
-offset_left = 30.0
-offset_top = 500.0
-offset_right = 290.0
-offset_bottom = 560.0
-text = "Morsure de Braise (10 JE)"
+[node name="SousMenuCombat" type="VBoxContainer" parent="UI/ZoneBas" unique_id=1447706817]
+visible = false
+layout_mode = 2
 
-[node name="BtnAttaque2" type="Button" parent="Boutons" unique_id=1848181504]
-offset_left = 310.0
-offset_top = 500.0
-offset_right = 570.0
-offset_bottom = 560.0
-text = "Queue Enflammée (15 JE)"
+[node name="SousMenuInventaire" type="VBoxContainer" parent="UI/ZoneBas" unique_id=917631089]
+visible = false
+layout_mode = 2
 
-[node name="BtnAttaque3" type="Button" parent="Boutons" unique_id=739878685]
-offset_left = 590.0
-offset_top = 500.0
-offset_right = 850.0
-offset_bottom = 560.0
-text = "Rugissement (10 JE)"
+[node name="BattleLog" type="Label" parent="UI/ZoneBas" unique_id=5583442]
+layout_mode = 2
+text = "..."
 
-[node name="BtnFuir" type="Button" parent="Boutons" unique_id=1583830822]
-offset_left = 870.0
-offset_top = 500.0
-offset_right = 1130.0
-offset_bottom = 560.0
-disabled = true
+[node name="Boutons" type="HBoxContainer" parent="UI/ZoneBas" unique_id=1264205464]
+layout_mode = 2
+
+[node name="BtnCombat" type="Button" parent="UI/ZoneBas/Boutons" unique_id=415362281]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Combat"
+
+[node name="BtnInventaire" type="Button" parent="UI/ZoneBas/Boutons" unique_id=2018382756]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Inventaire"
+
+[node name="BtnFuir" type="Button" parent="UI/ZoneBas/Boutons" unique_id=227336079]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
 text = "Fuir"
