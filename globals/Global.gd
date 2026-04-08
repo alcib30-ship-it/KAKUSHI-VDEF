@@ -19,6 +19,7 @@ var kakushi_sauvage             : String = ""
 var tisseur_rank                : int    = 0
 var fiabilite                   : float  = 1.0
 
+
 # ─── SPAWN ────────────────────────────────────────────────
 var spawn_x     : float  = 144.0
 var spawn_y     : float  = 200.0

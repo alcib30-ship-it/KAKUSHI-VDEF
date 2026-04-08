@@ -16,13 +16,15 @@ func _ready():
 	await get_tree().process_frame
 	await get_tree().process_frame
 	await get_tree().process_frame
-	WorldLoader.charger("foret")   # ← ajouter cette ligne
+	WorldLoader.charger("foret")
 	if Global.starter_choisi != "":
-		_connecter_zones()
+		# Si combat déjà fait, on ne connecte plus les zones de résonance
+		if not StoryManager.est_a_partir_de(StoryManager.Etape.COMBAT_GAGNE):
+			_connecter_zones()
 		return
 	DialogueManager.show_dialogue([
 		["", "La pulsion de l'artefact te guide. Des présences t'entourent."],
-		["", "Si l'une d'elles te regarde sans fuir... reste immobile 3 secondes pour créer un Lien."],
+		["", "Si l'une d'elles te regarde sans fuir… reste immobile 3 secondes pour créer un Lien."],
 		["", "Tu peux continuer à marcher pour en rencontrer d'autres."]
 	], _connecter_zones)
 
@@ -107,6 +109,9 @@ func _non_lien():
 	timer_lien = 0.0
 
 func _apres_lien():
+	# Guard : ne jamais relancer le combat si déjà fait
+	if StoryManager.est_a_partir_de(StoryManager.Etape.COMBAT_GAGNE):
+		return
 	await get_tree().create_timer(0.5).timeout
 	StoryManager.avancer(StoryManager.Etape.FORET_ENTREE)
 	Global.derniere_position_foret = Vector2(Global.spawn_x, Global.spawn_y)

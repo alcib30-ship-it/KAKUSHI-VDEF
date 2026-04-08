@@ -13,71 +13,106 @@ color = Color(0.05882353, 0.039215688, 0.09803922, 1)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1042689943]
 
-[node name="ZoneHaut" type="VBoxContainer" parent="UI" unique_id=1423904126]
+[node name="ZoneHaut" type="Control" parent="UI" unique_id=1423904126]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 340.0
+offset_bottom = 100.0
+
+[node name="PanneauEnnemi" type="VBoxContainer" parent="UI/ZoneHaut" unique_id=190120068]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanneauEnnemi" type="HBoxContainer" parent="UI/ZoneHaut" unique_id=190120068]
-layout_mode = 2
 
 [node name="EnnemiNom" type="Label" parent="UI/ZoneHaut/PanneauEnnemi" unique_id=789033130]
 layout_mode = 2
+text = "Ennemi"
 
 [node name="EnnemiPV" type="ProgressBar" parent="UI/ZoneHaut/PanneauEnnemi" unique_id=85662566]
+custom_minimum_size = Vector2(300, 16)
 layout_mode = 2
 max_value = 38.0
+show_percentage = false
 
 [node name="EnnemiATB" type="ProgressBar" parent="UI/ZoneHaut/PanneauEnnemi" unique_id=862799658]
+custom_minimum_size = Vector2(300, 10)
 layout_mode = 2
+show_percentage = false
 
 [node name="EtatEnnemi" type="Label" parent="UI/ZoneHaut/PanneauEnnemi" unique_id=1212013568]
 layout_mode = 2
 
-[node name="ZoneBas" type="VBoxContainer" parent="UI" unique_id=1552870777]
+[node name="ZoneBas" type="Control" parent="UI" unique_id=1552870777]
+layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -89.0
+offset_top = -200.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="PanneauJoueur" type="HBoxContainer" parent="UI/ZoneBas" unique_id=2083391284]
-layout_mode = 2
+[node name="PanneauJoueur" type="VBoxContainer" parent="UI/ZoneBas" unique_id=2083391284]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55
+anchor_right = 1.0
+offset_bottom = 95.0
 
 [node name="StarterNom" type="Label" parent="UI/ZoneBas/PanneauJoueur" unique_id=55454053]
 layout_mode = 2
+text = "Starter"
 
 [node name="JoueurPV" type="ProgressBar" parent="UI/ZoneBas/PanneauJoueur" unique_id=416905972]
+custom_minimum_size = Vector2(280, 16)
 layout_mode = 2
 max_value = 45.0
+show_percentage = false
 
 [node name="JoueurJE" type="ProgressBar" parent="UI/ZoneBas/PanneauJoueur" unique_id=622939483]
+custom_minimum_size = Vector2(280, 10)
 layout_mode = 2
+show_percentage = false
 
 [node name="JoueurATB" type="ProgressBar" parent="UI/ZoneBas/PanneauJoueur" unique_id=1365970327]
+custom_minimum_size = Vector2(280, 10)
 layout_mode = 2
+show_percentage = false
 
 [node name="EtatJoueur" type="Label" parent="UI/ZoneBas/PanneauJoueur" unique_id=6619867]
 layout_mode = 2
 
 [node name="SousMenuCombat" type="VBoxContainer" parent="UI/ZoneBas" unique_id=1447706817]
 visible = false
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.75
 
 [node name="SousMenuInventaire" type="VBoxContainer" parent="UI/ZoneBas" unique_id=917631089]
 visible = false
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.75
 
 [node name="BattleLog" type="Label" parent="UI/ZoneBas" unique_id=5583442]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_bottom = 150.0
 text = "..."
+autowrap_mode = 3
 
 [node name="Boutons" type="HBoxContainer" parent="UI/ZoneBas" unique_id=1264205464]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -52.0
 
 [node name="BtnCombat" type="Button" parent="UI/ZoneBas/Boutons" unique_id=415362281]
 custom_minimum_size = Vector2(200, 50)
