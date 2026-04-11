@@ -22,11 +22,10 @@ func _ready():
 		if not StoryManager.est_a_partir_de(StoryManager.Etape.COMBAT_GAGNE):
 			_connecter_zones()
 		return
-	DialogueManager.show_dialogue([
-		["", "La pulsion de l'artefact te guide. Des présences t'entourent."],
-		["", "Si l'une d'elles te regarde sans fuir… reste immobile 3 secondes pour créer un Lien."],
-		["", "Tu peux continuer à marcher pour en rencontrer d'autres."]
-	], _connecter_zones)
+	DialogueManager.show_dialogue(
+	WorldData.DIALOGUES["starters"],
+	_connecter_zones
+)
 
 func _connecter_zones():
 	zone_kitsufi.body_entered.connect(_entrer_kitsufi)
