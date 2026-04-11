@@ -348,7 +348,7 @@ const SCENES = {
 		{
 			"id": "jirou",
 			"sprite": "jirou",
-			"position": Vector2(336, 640),
+			"position": Vector2(200, 250),
 			"dialogue_id": "jirou_ch1",
 			"condition": "not:JIROU_VU",
 			"has_choix": true,
@@ -361,7 +361,7 @@ const SCENES = {
 		{
 			"id": "jirou_sc13",
 			"sprite": "jirou",
-			"position": Vector2(336, 640),
+			"position": Vector2(250, 580),
 			"dialogue_id": "jirou_sc13",
 			"condition": "YAMOTO_VU",
 			"avance_etape": "BALISE_ACTIVEE",
@@ -419,6 +419,15 @@ const SCENES = {
 			"avance_etape": "FORET_ENTREE",
 			"sauvegarde_position": "monde",
 		},
+		{
+	"id": "retour_foret_balise",
+	"type": "transition",
+	"position": Vector2(1550, 0),
+	"size": Vector2(80, 32),
+	"destination": "foret",
+	"condition": "YAMOTO_VU",
+	"sauvegarde_position": "monde",
+},
 		{
 			"id": "balise_1",
 			"type": "balise",
@@ -527,12 +536,21 @@ const SCENES = {
 		{
 			"id": "escalier_chambre",
 			"type": "transition",
-			"position": Vector2(500, 300),
+			"position": Vector2(600, 324),
 			"size": Vector2(48, 48),
 			"destination": "chambre",
 			"condition": "not:ARTEFACT_VU",
 			"sauvegarde_position": "foret",
 		},
+		{
+	"id": "torii",
+	"type": "dialogue",
+	"position": Vector2(300, 324),
+	"size": Vector2(80, 48),
+	"dialogue_id": "torii",
+	"condition": "not:ARTEFACT_VU",
+	"repeatable": false,
+},
 		{
 			"id": "sortie_ecole",
 			"type": "transition",

@@ -101,6 +101,7 @@ func _oui_lien():
 		["", "Un Lien vient de naître."],
 		["", "Tu sens une connexion profonde — comme si vous vous connaissiez depuis toujours."]
 	], _apres_lien)
+	print("starter_actuel = ", starter_actuel, " type = ", typeof(starter_actuel))
 
 func _non_lien():
 	Global.diminuer_fiabilite()
