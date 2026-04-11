@@ -199,7 +199,6 @@ const DIALOGUES = {
 	{"speaker": "Marchand", "text": "Potions, herbes, équipement. Je suis là si t'as besoin."},
 ],
 
-# Route 1
 "route1_bloquee": [
 	{"speaker": "", "text": "Un arbre massif barre la route. Il vient de tomber."},
 	{"speaker": "", "text": "Impossible de passer par là pour l'instant."},
@@ -210,7 +209,6 @@ const DIALOGUES = {
 	{"speaker": "", "text": "Il faudra revenir avec du renfort. ▶ Débloqué au Chapitre 4"},
 ],
 
-# Indices au sol --- hints narratifs sur les Kakushi
 "indice_plumes_kagemi": [
 	{"speaker": "", "text": "Des plumes noires au sol. Légères, presque translucides."},
 	{"speaker": "Ren", "text": "Une créature nocturne rôde ici. Elle doit revenir la nuit."},
@@ -224,7 +222,7 @@ const DIALOGUES = {
 }
 
 # ═══════════════════════════════════════════════
-# KAKUSHI --- données complètes pour le système silhouettes
+# KAKUSHI
 # ═══════════════════════════════════════════════
 
 const KAKUSHI = {
@@ -554,18 +552,18 @@ const SCENES = {
 # ═══════════════════════════════════════════════
 
 const TYPE_TABLE = {
-"feu": {"feu":0.5,"eau":0.5,"foudre":1.0,"nature":2.0,"ombre":1.0,"glace":1.0,"terre":1.0,"lune":1.0,"cristal":2.0,"vent":1.0,"plasma":1.0,"spectre":1.0},
-"eau": {"feu":2.0,"eau":0.5,"foudre":0.5,"nature":1.0,"ombre":1.0,"glace":2.0,"terre":1.0,"lune":1.0,"cristal":1.0,"vent":1.0,"plasma":1.0,"spectre":1.0},
+"feu":    {"feu":0.5,"eau":0.5,"foudre":1.0,"nature":2.0,"ombre":1.0,"glace":1.0,"terre":1.0,"lune":1.0,"cristal":2.0,"vent":1.0,"plasma":1.0,"spectre":1.0},
+"eau":    {"feu":2.0,"eau":0.5,"foudre":0.5,"nature":1.0,"ombre":1.0,"glace":2.0,"terre":1.0,"lune":1.0,"cristal":1.0,"vent":1.0,"plasma":1.0,"spectre":1.0},
 "foudre": {"feu":1.0,"eau":2.0,"foudre":1.0,"nature":0.5,"ombre":1.0,"glace":1.0,"terre":0.5,"lune":1.0,"cristal":1.0,"vent":2.0,"plasma":1.0,"spectre":1.0},
 "nature": {"feu":0.5,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":0.5,"glace":1.0,"terre":2.0,"lune":1.0,"cristal":0.5,"vent":1.0,"plasma":1.0,"spectre":1.0},
-"ombre": {"feu":1.0,"eau":1.0,"foudre":1.0,"nature":0.5,"ombre":0.5,"glace":1.0,"terre":1.0,"lune":2.0,"cristal":1.0,"vent":1.0,"plasma":1.0,"spectre":2.0},
-"glace": {"feu":0.5,"eau":1.0,"foudre":1.0,"nature":2.0,"ombre":1.0,"glace":0.5,"terre":1.0,"lune":1.0,"cristal":1.0,"vent":2.0,"plasma":1.0,"spectre":1.0},
-"terre": {"feu":2.0,"eau":1.0,"foudre":0.5,"nature":1.0,"ombre":1.0,"glace":1.0,"terre":0.5,"lune":1.0,"cristal":2.0,"vent":1.0,"plasma":1.0,"spectre":1.0},
-"lune": {"feu":1.0,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":2.0,"glace":1.0,"terre":1.0,"lune":0.5,"cristal":1.0,"vent":1.0,"plasma":0.5,"spectre":2.0},
-"cristal": {"feu":0.5,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":1.0,"glace":2.0,"terre":0.5,"lune":1.0,"cristal":1.0,"vent":2.0,"plasma":1.0,"spectre":1.0},
-"vent": {"feu":1.0,"eau":1.0,"foudre":0.5,"nature":2.0,"ombre":1.0,"glace":1.0,"terre":1.0,"lune":1.0,"cristal":0.5,"vent":0.5,"plasma":1.0,"spectre":1.0},
+"ombre":  {"feu":1.0,"eau":1.0,"foudre":1.0,"nature":0.5,"ombre":0.5,"glace":1.0,"terre":1.0,"lune":2.0,"cristal":1.0,"vent":1.0,"plasma":1.0,"spectre":2.0},
+"glace":  {"feu":0.5,"eau":1.0,"foudre":1.0,"nature":2.0,"ombre":1.0,"glace":0.5,"terre":1.0,"lune":1.0,"cristal":1.0,"vent":2.0,"plasma":1.0,"spectre":1.0},
+"terre":  {"feu":2.0,"eau":1.0,"foudre":0.5,"nature":1.0,"ombre":1.0,"glace":1.0,"terre":0.5,"lune":1.0,"cristal":2.0,"vent":1.0,"plasma":1.0,"spectre":1.0},
+"lune":   {"feu":1.0,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":2.0,"glace":1.0,"terre":1.0,"lune":0.5,"cristal":1.0,"vent":1.0,"plasma":0.5,"spectre":2.0},
+"cristal":{"feu":0.5,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":1.0,"glace":2.0,"terre":0.5,"lune":1.0,"cristal":1.0,"vent":2.0,"plasma":1.0,"spectre":1.0},
+"vent":   {"feu":1.0,"eau":1.0,"foudre":0.5,"nature":2.0,"ombre":1.0,"glace":1.0,"terre":1.0,"lune":1.0,"cristal":0.5,"vent":0.5,"plasma":1.0,"spectre":1.0},
 "plasma": {"feu":1.0,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":1.0,"glace":1.0,"terre":1.0,"lune":2.0,"cristal":2.0,"vent":1.0,"plasma":0.5,"spectre":0.0},
-"spectre": {"feu":1.0,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":0.5,"glace":1.0,"terre":1.0,"lune":2.0,"cristal":1.0,"vent":1.0,"plasma":0.0,"spectre":0.5},
+"spectre":{"feu":1.0,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":0.5,"glace":1.0,"terre":1.0,"lune":2.0,"cristal":1.0,"vent":1.0,"plasma":0.0,"spectre":0.5},
 "neutre": {"feu":1.0,"eau":1.0,"foudre":1.0,"nature":1.0,"ombre":1.0,"glace":1.0,"terre":1.0,"lune":1.0,"cristal":1.0,"vent":1.0,"plasma":1.0,"spectre":1.0},
 }
 
@@ -574,16 +572,16 @@ const TYPE_TABLE = {
 # ═══════════════════════════════════════════════
 
 const ALTERATIONS = {
-"surchauffe":          {"label":"Surchauffe",          "source":"feu",    "duree":3, "effet":"je_max_50"},
-"dilution":            {"label":"Dilution",             "source":"eau",    "duree":4, "effet":"cout_je_plus10"},
-"court_circuit":       {"label":"Court-Circuit",        "source":"foudre", "duree":1, "effet":"reset_tempo"},
-"entrave":             {"label":"Entrave",              "source":"nature", "duree":3, "effet":"spd_div2"},
-"miroir_brise":        {"label":"Miroir Brise",         "source":"ombre",  "duree":4, "effet":"reflet_10pct"},
-"cristallisation":     {"label":"Cristallisation",      "source":"glace",  "duree":2, "effet":"def_plus25_spd_div2"},
-"dissipation":         {"label":"Dissipation",          "source":"plasma", "duree":3, "effet":"lien_zero"},
-"resonance_inversee":  {"label":"Resonance Inversee",   "source":"spectre","duree":2, "effet":"soins_degats"},
-"eclat_sature":        {"label":"Eclat Sature",         "source":"lune",   "duree":3, "effet":"je_vide_15"},
-"turbulence":          {"label":"Turbulence",           "source":"vent",   "duree":3, "effet":"tempo_aleatoire"},
+"surchauffe":         {"label":"Surchauffe",         "source":"feu",    "duree":3, "effet":"je_max_50"},
+"dilution":           {"label":"Dilution",            "source":"eau",    "duree":4, "effet":"cout_je_plus10"},
+"court_circuit":      {"label":"Court-Circuit",       "source":"foudre", "duree":1, "effet":"reset_tempo"},
+"entrave":            {"label":"Entrave",             "source":"nature", "duree":3, "effet":"spd_div2"},
+"miroir_brise":       {"label":"Miroir Brise",        "source":"ombre",  "duree":4, "effet":"reflet_10pct"},
+"cristallisation":    {"label":"Cristallisation",     "source":"glace",  "duree":2, "effet":"def_plus25_spd_div2"},
+"dissipation":        {"label":"Dissipation",         "source":"plasma", "duree":3, "effet":"lien_zero"},
+"resonance_inversee": {"label":"Resonance Inversee",  "source":"spectre","duree":2, "effet":"soins_degats"},
+"eclat_sature":       {"label":"Eclat Sature",        "source":"lune",   "duree":3, "effet":"je_vide_15"},
+"turbulence":         {"label":"Turbulence",          "source":"vent",   "duree":3, "effet":"tempo_aleatoire"},
 }
 
 # ═══════════════════════════════════════════════
@@ -591,20 +589,20 @@ const ALTERATIONS = {
 # ═══════════════════════════════════════════════
 
 const ATTAQUES = {
-"morsure_braise":     {"nom":"Morsure de Braise",  "element":"feu",    "type":"physique", "puissance":25, "je":0,  "alteration":"surchauffe",       "proba_alt":0.08, "esquivabilite":0.20},
-"queue_enflammee":    {"nom":"Queue Enflammee",    "element":"feu",    "type":"special",  "puissance":35, "je":20, "alteration":"surchauffe",       "proba_alt":0.25, "esquivabilite":0.15},
-"rugissement":        {"nom":"Rugissement",        "element":"neutre", "type":"statut",   "puissance":0,  "je":10, "alteration":"",                 "proba_alt":0.00, "esquivabilite":0.00},
-"canaliser":          {"nom":"Canaliser",          "element":"neutre", "type":"recharge", "puissance":0,  "je":0,  "alteration":"",                 "proba_alt":0.00, "esquivabilite":0.00},
-"jet_eau":            {"nom":"Jet d'Eau",          "element":"eau",    "type":"physique", "puissance":20, "je":0,  "alteration":"dilution",         "proba_alt":0.08, "esquivabilite":0.25},
-"vague_froide":       {"nom":"Vague Froide",       "element":"eau",    "type":"special",  "puissance":28, "je":20, "alteration":"dilution",         "proba_alt":0.20, "esquivabilite":0.15},
-"fouet_vegetal":      {"nom":"Fouet Vegetal",      "element":"nature", "type":"physique", "puissance":25, "je":0,  "alteration":"entrave",          "proba_alt":0.08, "esquivabilite":0.20},
-"pollen_endormi":     {"nom":"Pollen Endormi",     "element":"nature", "type":"statut",   "puissance":0,  "je":20, "alteration":"entrave",          "proba_alt":1.00, "esquivabilite":0.00},
-"eclair_rapide":      {"nom":"Eclair Rapide",      "element":"foudre", "type":"special",  "puissance":30, "je":20, "alteration":"court_circuit",    "proba_alt":0.20, "esquivabilite":0.30},
-"surcharge":          {"nom":"Surcharge",          "element":"foudre", "type":"special",  "puissance":50, "je":35, "alteration":"court_circuit",    "proba_alt":0.10, "esquivabilite":0.05},
-"reflet_brise":       {"nom":"Reflet Brise",       "element":"ombre",  "type":"special",  "puissance":28, "je":20, "alteration":"miroir_brise",     "proba_alt":0.25, "esquivabilite":0.20},
-"disparition":        {"nom":"Disparition",        "element":"ombre",  "type":"statut",   "puissance":0,  "je":15, "alteration":"",                 "proba_alt":0.00, "esquivabilite":0.00},
-"crachat_lave":       {"nom":"Crachat de Lave",    "element":"feu",    "type":"special",  "puissance":40, "je":0,  "alteration":"surchauffe",       "proba_alt":0.30, "esquivabilite":0.25},
-"charge_volcanique":  {"nom":"Charge Volcanique",  "element":"feu",    "type":"physique", "puissance":45, "je":0,  "alteration":"",                 "proba_alt":0.00, "esquivabilite":0.15},
+"morsure_braise":    {"nom":"Morsure de Braise", "element":"feu",    "type":"physique", "puissance":25, "je":0,  "alteration":"surchauffe",    "proba_alt":0.08, "esquivabilite":0.20},
+"queue_enflammee":   {"nom":"Queue Enflammee",   "element":"feu",    "type":"special",  "puissance":35, "je":20, "alteration":"surchauffe",    "proba_alt":0.25, "esquivabilite":0.15},
+"rugissement":       {"nom":"Rugissement",       "element":"neutre", "type":"statut",   "puissance":0,  "je":10, "alteration":"",              "proba_alt":0.00, "esquivabilite":0.00},
+"canaliser":         {"nom":"Canaliser",         "element":"neutre", "type":"recharge", "puissance":0,  "je":0,  "alteration":"",              "proba_alt":0.00, "esquivabilite":0.00},
+"jet_eau":           {"nom":"Jet d'Eau",         "element":"eau",    "type":"physique", "puissance":20, "je":0,  "alteration":"dilution",      "proba_alt":0.08, "esquivabilite":0.25},
+"vague_froide":      {"nom":"Vague Froide",      "element":"eau",    "type":"special",  "puissance":28, "je":20, "alteration":"dilution",      "proba_alt":0.20, "esquivabilite":0.15},
+"fouet_vegetal":     {"nom":"Fouet Vegetal",     "element":"nature", "type":"physique", "puissance":25, "je":0,  "alteration":"entrave",       "proba_alt":0.08, "esquivabilite":0.20},
+"pollen_endormi":    {"nom":"Pollen Endormi",    "element":"nature", "type":"statut",   "puissance":0,  "je":20, "alteration":"entrave",       "proba_alt":1.00, "esquivabilite":0.00},
+"eclair_rapide":     {"nom":"Eclair Rapide",     "element":"foudre", "type":"special",  "puissance":30, "je":20, "alteration":"court_circuit", "proba_alt":0.20, "esquivabilite":0.30},
+"surcharge":         {"nom":"Surcharge",         "element":"foudre", "type":"special",  "puissance":50, "je":35, "alteration":"court_circuit", "proba_alt":0.10, "esquivabilite":0.05},
+"reflet_brise":      {"nom":"Reflet Brise",      "element":"ombre",  "type":"special",  "puissance":28, "je":20, "alteration":"miroir_brise",  "proba_alt":0.25, "esquivabilite":0.20},
+"disparition":       {"nom":"Disparition",       "element":"ombre",  "type":"statut",   "puissance":0,  "je":15, "alteration":"",              "proba_alt":0.00, "esquivabilite":0.00},
+"crachat_lave":      {"nom":"Crachat de Lave",   "element":"feu",    "type":"special",  "puissance":40, "je":0,  "alteration":"surchauffe",    "proba_alt":0.30, "esquivabilite":0.25},
+"charge_volcanique": {"nom":"Charge Volcanique", "element":"feu",    "type":"physique", "puissance":45, "je":0,  "alteration":"",              "proba_alt":0.00, "esquivabilite":0.15},
 }
 
 # ═══════════════════════════════════════════════
@@ -662,13 +660,13 @@ const DIALOGUES_CLAIRIERE = {
 	["Père", "% Tu dors encore ? Ta mère te cherche."],
 	["Père", "% Tu m'entends ?"],
 	["Père", "J'ai besoin que tu me rendes un service, apporte le carnet à ta mère, elle se trouve à l'école au bout de la forêt."],
-	["Père", "Fais attention sur la route."]
+	["Père", "Fais attention sur la route."],
 ],
 "reveil": [
-	["", "Encore endormi dehors. Jirou dirait que c'est comme ça qu'on apprend à écouter la mer."]
+	["", "Encore endormi dehors. Jirou dirait que c'est comme ça qu'on apprend à écouter la mer."],
 ],
 "objectif": [
-	["", "[ Objectif : Rentre à la maison. Le carnet de ta mère est sur la table. ]"]
+	["", "[ Objectif : Rentre à la maison. Le carnet de ta mère est sur la table. ]"],
 ],
 }
 

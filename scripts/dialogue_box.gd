@@ -30,7 +30,10 @@ func afficher_sequence(phrases: Array, rappel: Callable = Callable()):
 	sequence_index = 0
 	callback = rappel
 	var premier = phrases[0]
-	afficher(premier[0], premier[1])
+	if premier is Dictionary:
+		afficher(premier["speaker"], premier["text"])
+	else:
+		afficher(premier[0], premier[1])
 
 func afficher_choix(phrase: String, cb_oui: Callable, cb_non: Callable):
 	en_choix = true
@@ -90,12 +93,16 @@ func _input(event):
 			sequence_index += 1
 			if sequence_index < sequence.size():
 				var suivant = sequence[sequence_index]
-				afficher(suivant[0], suivant[1])
+				if suivant is Dictionary:
+					afficher(suivant["speaker"], suivant["text"])
+				else:
+					afficher(suivant[0], suivant[1])
 			else:
 				$Box.visible = false
 				sequence = []
 				if callback.is_valid():
 					callback.call()
+
 func _ready():
 	DialogueManager.register(self)
 	$Box.visible = false

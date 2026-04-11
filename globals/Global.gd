@@ -77,3 +77,6 @@ var derniere_position_foret : Vector2 = Vector2(100, 324)
 
 var combat_retour_scene : String = "foret"
 var combat_est_boss : bool = false
+
+var combat_dialogue_victoire : String = "embrix_apres"
+var combat_dialogue_defaite : String = "embrix_defaite"

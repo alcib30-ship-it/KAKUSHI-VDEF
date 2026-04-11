@@ -71,6 +71,11 @@ func _condition_pnj_ok(pnj_data: Dictionary) -> bool:
 	var cond = pnj_data.get("condition", "")
 	if cond == "":
 		return true
+	if cond.begins_with("not:"):
+		var etape_str = cond.substr(4)
+		if not StoryManager.Etape.has(etape_str):
+			return true
+		return not StoryManager.est_a_partir_de(StoryManager.Etape[etape_str])
 	if not StoryManager.Etape.has(cond):
 		return false
 	return StoryManager.est_a_partir_de(StoryManager.Etape[cond])

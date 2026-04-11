@@ -52,6 +52,8 @@ func _ready() -> void:
 	_desactiver_boutons()
 	battle_log.text = WorldData.DIALOGUES_COMBAT["intro_embrix"]
 	maj_barres()
+	await get_tree().create_timer(1.5).timeout
+	DialogueManager.show_dialogue(WorldData.DIALOGUES["embrix_avant"], Callable())
 
 func _charger_stats(id: String) -> Dictionary:
 	var base = WorldData.KAKUSHI_STATS[id].duplicate(true)
@@ -398,19 +400,24 @@ func _verifier_fin() -> void:
 func victoire() -> void:
 	combat_termine = true
 	_desactiver_boutons()
-	battle_log.text = WorldData.DIALOGUES_COMBAT["victoire_embrix"]
+	var lignes = WorldData.DIALOGUES_COMBAT.get(Global.combat_dialogue_victoire, [])
+	for ligne in lignes:
+		battle_log.text = ligne
+		await get_tree().create_timer(1.5).timeout
 	StoryManager.avancer(StoryManager.Etape.COMBAT_GAGNE)
-	await get_tree().create_timer(2.0).timeout
 	Global.spawn_x = Global.derniere_position_foret.x
 	Global.spawn_y = Global.derniere_position_foret.y
 	Transition.vers_foret()
+
 
 func defaite() -> void:
 	combat_termine = true
 	_desactiver_boutons()
 	battle_log.text = WorldData.DIALOGUES_COMBAT["defaite_embrix"]
 	await get_tree().create_timer(2.0).timeout
-	get_tree().reload_current_scene()
+	Global.spawn_x = Global.derniere_position_foret.x
+	Global.spawn_y = Global.derniere_position_foret.y
+	Transition.vers_foret()
 
 # ─── UI ────────────────────────────────────────
 func maj_barres() -> void:
