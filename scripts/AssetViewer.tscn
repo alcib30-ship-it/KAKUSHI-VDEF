@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://g6m1h32qbxmu"]
+
+[ext_resource type="Script" uid="uid://c5p47adi6tvac" path="res://AssetViewer.gd" id="1_fv8er"]
+
+[node name="AssetViewer" type="Node3D" unique_id=1699022025]
+script = ExtResource("1_fv8er")

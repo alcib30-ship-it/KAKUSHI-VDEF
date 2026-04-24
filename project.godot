@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Kakusei"
-run/main_scene="uid://b3nddcw4vnge5"
+run/main_scene="uid://d0mlmuuc5v52v"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -29,6 +29,10 @@ WorldLoader="*uid://chrp86vfdacdv"
 
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
 [input]
 
 menu={
@@ -44,5 +48,4 @@ menu={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

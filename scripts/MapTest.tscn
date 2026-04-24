@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8ammctfkcuwd"]
+
+[ext_resource type="Script" uid="uid://dhl3yii2hwlku" path="res://MapTest.gd" id="1_osoef"]
+
+[node name="MapTest" type="Node3D" unique_id=215198]
+script = ExtResource("1_osoef")

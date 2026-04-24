@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scenes/bernis_kawa_3d/BernisKawa3D.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://grass_texture.png.png" id="2_grass"]
+
+[sub_resource type="PlaneMesh" id="1_planemesh"]
+size = Vector2(120, 120)
+
+[sub_resource type="StandardMaterial3D" id="2_grassmat"]
+albedo_texture = ExtResource("2_grass")
+uv1_scale = Vector3(20, 20, 1)
+roughness = 0.95
+
+[sub_resource type="BoxShape3D" id="3_groundshape"]
+size = Vector3(120, 0.1, 120)
+
+[sub_resource type="ProceduralSkyMaterial" id="4_skymat"]
+sky_top_color = Color(0.28, 0.52, 0.85, 1)
+sky_horizon_color = Color(0.75, 0.85, 0.95, 1)
+ground_bottom_color = Color(0.2, 0.18, 0.15, 1)
+
+[sub_resource type="Sky" id="5_sky"]
+sky_material = SubResource("4_skymat")
+
+[sub_resource type="Environment" id="6_env"]
+background_mode = 2
+sky = SubResource("5_sky")
+ambient_light_source = 1
+ambient_light_color = Color(0.6, 0.65, 0.75, 1)
+ambient_light_energy = 0.4
+
+[node name="BernisKawa3D" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="GroundBody" type="StaticBody3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="GroundBody"]
+mesh = SubResource("1_planemesh")
+material_override = SubResource("2_grassmat")
+
+[node name="GroundCollision" type="CollisionShape3D" parent="GroundBody"]
+shape = SubResource("3_groundshape")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707, -0.5, 0.5, 0, 0.707, 0.707, -0.707, -0.5, 0.5, 0, 0, 0)
+light_energy = 1.2
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("6_env")
+
+[node name="Assets" type="Node3D" parent="."]

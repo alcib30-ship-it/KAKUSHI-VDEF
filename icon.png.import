@@ -2,26 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx2sqkilnq2v4"
-path="res://.godot/imported/Tileset de Base pour Importation GODOT.png-ccca930f2d53713f0a52dd72fcfe7f63.ctex"
+uid="uid://h68cek51vakm"
+path.bptc="res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://assets/Tileset de Base pour Importation GODOT.png"
-dest_files=["res://.godot/imported/Tileset de Base pour Importation GODOT.png-ccca930f2d53713f0a52dd72fcfe7f63.ctex"]
+source_file="res://icon.png"
+dest_files=["res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=2
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
